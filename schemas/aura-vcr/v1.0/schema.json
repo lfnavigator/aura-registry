@@ -1,0 +1,935 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://breshev-engineering.github.io/aura-registry/schemas/aura-vcr/v1.0/schema.json",
+  "title": "AURA Validation Chain Registry Entry v1.0",
+  "description": "Canonical contract for an entry in the Breshev Validation Chain (BVC) Registry. Describes a validated reference anchor with full provenance chain: industrial/experimental baseline → analytical method → CFD calibration → experimental verification, with explicit residuals between each step and a defined applicability region. This is the methodological backbone of AURA. Each entry is a publishable, auditable, citable scientific artifact. Governance-reinforced: residual-to-previous is explicit for every step, baseline residual is null, non-baseline residual is required, sources and expert review are explicit, attached artifacts require SHA-256 hashes, public anchors require CC-BY-4.0 attribution and non-placeholder entry hashes, and chainStatus supports complete_with_notes.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "entryId",
+    "evidenceLevel",
+    "domainCategory",
+    "createdAt",
+    "chainSteps",
+    "chainStatus",
+    "applicabilityRegion",
+    "title",
+    "shortDescription",
+    "provenance",
+    "expertReview",
+    "lifecycle",
+    "registryVisibility",
+    "license"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "AURA_VCR_V1.0"
+    },
+    "entryId": {
+      "type": "string",
+      "pattern": "^VCR_[A-Z0-9_]{4,64}$",
+      "description": "Unique Registry entry identifier. Format: VCR_<UPPERCASE_SLUG>. Examples: VCR_BRESHEV_CONICAL_001, VCR_NELSON_MCVAUGH_1976, VCR_MONOKRISTALL_FOUNDATION."
+    },
+    "caseId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^aura_case_[a-zA-Z0-9_]{6,64}$",
+      "description": "Optional reference to the AURA_CASE_V1.1 case that this entry corresponds to. Some Registry entries derive from external publications and have no AURA case; in that situation this is null."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 200,
+      "description": "Short human-readable title. Example: 'Conical aerostatic bearing Kr/Ka — Breshev section 4.2'."
+    },
+    "shortDescription": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "One-paragraph summary of what this anchor represents and why it is trustworthy."
+    },
+    "domainCategory": {
+      "type": "string",
+      "enum": [
+        "aerostatic_journal",
+        "aerostatic_conical",
+        "aerostatic_thrust",
+        "aerostatic_hybrid",
+        "rotor_dynamics_critical_speed",
+        "rotor_dynamics_unbalance_response",
+        "cfd_calibration_benchmark",
+        "experimental_spindle",
+        "industrial_baseline"
+      ],
+      "description": "BVC domain classification. Drives applicability scoping and similarity matching."
+    },
+    "evidenceLevel": {
+      "type": "string",
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "description": "BVC overall evidence level for this anchor. L0 = analytical only; L1 = analytical + literature; L2 = analytical + CFD; L3 = calibrated CFD; L4 = experimental supported; L5 = benchmark anchor."
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastReviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "geometry": {
+      "type": "object",
+      "description": "Geometric envelope of this anchor case.",
+      "additionalProperties": false,
+      "properties": {
+        "bearingType": {
+          "type": "string",
+          "enum": [
+            "cylindrical_journal",
+            "conical",
+            "spherical",
+            "thrust",
+            "hybrid",
+            "multi_recess",
+            "porous"
+          ]
+        },
+        "D_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "L_mm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "C_um": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "L_over_D": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "C_over_D": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "conicalAngleDeg": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "feedCount": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "feedDiameterMm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "operatingEnvelope": {
+      "type": "object",
+      "description": "Operating conditions at which this anchor was validated.",
+      "additionalProperties": false,
+      "properties": {
+        "supplyPressureBarRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "[min, max] supply pressure in bar."
+        },
+        "pressureRatioRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "operatingRpmRange": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "temperatureCRange": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "gasType": {
+          "type": "string",
+          "enum": [
+            "air",
+            "nitrogen",
+            "helium",
+            "argon",
+            "custom"
+          ]
+        }
+      }
+    },
+    "chainSteps": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Sequential steps of the validation chain. Each step references the previous and reports residuals. The chain establishes traceable evidence from physical reality to model prediction.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stepId",
+          "stepType",
+          "stepOrder",
+          "status",
+          "source",
+          "dataAvailable",
+          "residualToPrevious",
+          "acceptanceCriteria",
+          "expertReview"
+        ],
+        "properties": {
+          "stepId": {
+            "type": "string",
+            "pattern": "^S[0-9]+_[a-z_]+$",
+            "description": "Step identifier. Format: S<order>_<type>. Example: S1_industrial_data, S2_perturbation_method, S3_cfd_calibration, S4_experimental_verification."
+          },
+          "stepOrder": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Sequential order in the chain. 1 = baseline, subsequent steps build on prior."
+          },
+          "stepType": {
+            "type": "string",
+            "enum": [
+              "industrial_known_data",
+              "analytical_method_application",
+              "literature_correlation",
+              "cfd_calibration",
+              "fem_comparison",
+              "experimental_verification",
+              "benchmark_comparison"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "description": "Human-readable step label. Example: 'Improved perturbation method on Monokristall bearing'."
+          },
+          "source": {
+            "type": "object",
+            "description": "Source data or method for this step.",
+            "additionalProperties": false,
+            "properties": {
+              "description": {
+                "type": "string"
+              },
+              "softwareUsed": {
+                "type": "string",
+                "description": "Software/method identifier. Example: 'AURA perturbation v3.2', 'SOLIDWORKS Flow Simulation 2023', 'Custom experimental rig'."
+              },
+              "publicationReference": {
+                "type": "string",
+                "description": "DOI, ISBN, or citation if step is from published source."
+              },
+              "internalReference": {
+                "type": "string",
+                "description": "Internal archive reference if applicable."
+              }
+            },
+            "anyOf": [
+              {
+                "required": [
+                  "description"
+                ]
+              },
+              {
+                "required": [
+                  "publicationReference"
+                ]
+              },
+              {
+                "required": [
+                  "internalReference"
+                ]
+              },
+              {
+                "required": [
+                  "softwareUsed"
+                ]
+              }
+            ]
+          },
+          "dataAvailable": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "geometry",
+                "operating_conditions",
+                "static_stiffness",
+                "static_load_capacity",
+                "flow_rate",
+                "pressure_distribution",
+                "pressure_field_samples",
+                "first_critical_speed",
+                "dynamic_coefficients",
+                "modal_shapes",
+                "experimental_displacement",
+                "experimental_pressure",
+                "operating_temperature",
+                "boundary_conditions",
+                "mesh_convergence"
+              ]
+            },
+            "description": "Which physical quantities are documented at this step."
+          },
+          "residualToPrevious": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Residual deltas vs prior step. Null for first step (baseline).",
+            "additionalProperties": false,
+            "properties": {
+              "againstStepId": {
+                "type": "string"
+              },
+              "rows": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "quantity",
+                    "deltaPct"
+                  ],
+                  "properties": {
+                    "quantity": {
+                      "type": "string",
+                      "description": "Name of compared quantity. Example: 'flow_rate', 'stiffness', 'first_critical', 'pressure_field_rmse_normalized'."
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "thisValue": {
+                      "type": "number"
+                    },
+                    "referenceValue": {
+                      "type": "number"
+                    },
+                    "deltaPct": {
+                      "type": "number",
+                      "description": "Signed percent delta: (this - reference) / reference * 100."
+                    },
+                    "acceptanceThresholdPct": {
+                      "type": "number",
+                      "description": "Maximum acceptable absolute deltaPct per BVC acceptance criteria."
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "GOOD",
+                        "REVIEW",
+                        "POOR"
+                      ]
+                    }
+                  }
+                }
+              },
+              "worstAbsDeltaPct": {
+                "type": "number"
+              },
+              "overallStatus": {
+                "type": "string",
+                "enum": [
+                  "GOOD",
+                  "REVIEW",
+                  "POOR"
+                ]
+              }
+            },
+            "required": [
+              "againstStepId",
+              "rows",
+              "overallStatus"
+            ]
+          },
+          "acceptanceCriteria": {
+            "type": "object",
+            "description": "Numerical criteria for this step to be accepted as part of the chain.",
+            "additionalProperties": false,
+            "properties": {
+              "flowRateDeltaMaxPct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "stiffnessDeltaMaxPct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "loadCapacityDeltaMaxPct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "pressureFieldShapeScoreMin": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "minimum": 0,
+                "maximum": 1
+              },
+              "criticalSpeedDeltaMaxPct": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "meshConvergenceLevelsRequired": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 1
+              },
+              "customCriteria": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "expertReview": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "description": "Expert assessment of this step.",
+            "additionalProperties": false,
+            "required": [
+              "reviewer",
+              "verdict",
+              "dateIso"
+            ],
+            "properties": {
+              "reviewer": {
+                "type": "string",
+                "description": "Format: 'X.Y. Surname'. Example: 'V.E. Breshev'."
+              },
+              "verdict": {
+                "type": "string",
+                "enum": [
+                  "accepted",
+                  "accepted_with_notes",
+                  "suspicious",
+                  "rejected"
+                ]
+              },
+              "reasoning": {
+                "type": "string",
+                "description": "Brief explanation of verdict. Captures expert judgement."
+              },
+              "dateIso": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "complete",
+              "partial",
+              "missing",
+              "rejected"
+            ],
+            "description": "Operational status of this step."
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Known limitations or caveats specific to this step."
+          },
+          "attachedArtifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "artifactType",
+                "label",
+                "fileHash"
+              ],
+              "properties": {
+                "artifactType": {
+                  "type": "string",
+                  "enum": [
+                    "cfd_report_docx",
+                    "goal_plot_xls",
+                    "point_parameters_xlsx",
+                    "experimental_data_csv",
+                    "pressure_field_png",
+                    "mesh_image",
+                    "modal_animation",
+                    "external_publication_pdf",
+                    "audio_review_session",
+                    "other"
+                  ]
+                },
+                "label": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "fileHash": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$"
+                }
+              }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "stepOrder": {
+                  "const": 1
+                }
+              },
+              "required": [
+                "stepOrder"
+              ]
+            },
+            "then": {
+              "properties": {
+                "residualToPrevious": {
+                  "type": "null"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "residualToPrevious": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "chainStatus": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "complete_with_notes",
+        "partial",
+        "broken",
+        "in_progress"
+      ],
+      "description": "Overall status of the validation chain. 'complete' = all planned steps validated without caveats. 'complete_with_notes' = all planned steps accepted but at least one step or entry has notes. 'partial' = some steps missing but evidence sufficient for current level. 'broken' = suspicious/rejected step or residual conflict limits trust. 'in_progress' = active curation."
+    },
+    "applicabilityRegion": {
+      "type": "object",
+      "description": "Parameter ranges within which this anchor provides valid reference. Outside region → domain shift detected.",
+      "additionalProperties": false,
+      "properties": {
+        "L_over_D": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "C_over_D": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "pressureRatio": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "operatingRpm": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "eccentricityRatio": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "conicalAngleDeg": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "feedCount": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "extrapolationAllowed": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether predictions outside this region are permitted with downgraded confidence."
+        }
+      }
+    },
+    "knownLimitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Documented limitations of this anchor. Examples: 'Does not include thermal effects', 'Assumes laminar flow', 'No pneumatic hammer regime data'."
+    },
+    "expertReview": {
+      "type": "object",
+      "description": "Top-level expert review of this Registry entry as a whole.",
+      "additionalProperties": false,
+      "required": [
+        "reviewer",
+        "role",
+        "review_type",
+        "verdict",
+        "dateIso"
+      ],
+      "properties": {
+        "reviewer": {
+          "type": "string",
+          "description": "Format: 'X.Y. Surname'. Example: 'V.E. Breshev'."
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "methodology_coauthor",
+            "academic_supervisor",
+            "external_reviewer",
+            "internal_qa"
+          ]
+        },
+        "review_type": {
+          "type": "string",
+          "enum": [
+            "expert_methodology_review",
+            "academic_review",
+            "engineering_qa",
+            "cfd_pattern_review",
+            "experimental_data_review"
+          ]
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "approved",
+            "approved_with_notes",
+            "rejected"
+          ]
+        },
+        "reasoning": {
+          "type": "string"
+        },
+        "dateIso": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "External publications, internal archives, or other sources backing this entry.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "referenceType",
+          "citation"
+        ],
+        "properties": {
+          "referenceType": {
+            "type": "string",
+            "enum": [
+              "dissertation",
+              "peer_reviewed_paper",
+              "book_chapter",
+              "conference_paper",
+              "technical_report",
+              "internal_archive",
+              "patent",
+              "standard"
+            ]
+          },
+          "citation": {
+            "type": "string"
+          },
+          "doi": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "internalRef": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "saved",
+        "reviewed",
+        "validated_anchor",
+        "benchmark_anchor",
+        "rejected"
+      ],
+      "default": "saved",
+      "description": "BVC promotion ladder status."
+    },
+    "lifecycleHistory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "dateIso"
+        ],
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "dateIso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "registryVisibility": {
+      "type": "string",
+      "enum": [
+        "private",
+        "internal",
+        "public_anchor"
+      ],
+      "default": "internal",
+      "description": "Access control. 'public_anchor' entries are published to public Registry and indexed for search. 'private' = customer data. 'internal' = Breshev-Engineering only."
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MIT",
+            "CC-BY-4.0",
+            "CC-BY-SA-4.0",
+            "proprietary",
+            "proprietary_confidential"
+          ]
+        },
+        "attribution": {
+          "type": "string",
+          "description": "Required for CC-BY-4.0. Standard: 'A.V. Breshev, V.E. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry'."
+        },
+        "public_release": {
+          "type": "boolean"
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "createdBy": {
+          "type": "string",
+          "description": "Author of this Registry entry. Format: 'X.Y. Surname'."
+        },
+        "methodologyVersion": {
+          "type": "string",
+          "default": "BVC_v1"
+        },
+        "auraVersion": {
+          "type": "string",
+          "pattern": "^AURA v\\d+\\.\\d+\\.\\d+(-[a-z]+(-[a-z]+)?)?$"
+        },
+        "entryHash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Hash of deterministically-serialized entry content. Used for integrity verification."
+        }
+      },
+      "required": [
+        "createdBy",
+        "methodologyVersion",
+        "auraVersion"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "registryVisibility": {
+            "const": "public_anchor"
+          }
+        },
+        "required": [
+          "registryVisibility"
+        ]
+      },
+      "then": {
+        "properties": {
+          "license": {
+            "properties": {
+              "type": {
+                "const": "CC-BY-4.0"
+              },
+              "public_release": {
+                "const": true
+              }
+            },
+            "required": [
+              "type",
+              "attribution",
+              "public_release"
+            ]
+          },
+          "lifecycle": {
+            "enum": [
+              "validated_anchor",
+              "benchmark_anchor"
+            ]
+          },
+          "provenance": {
+            "required": [
+              "createdBy",
+              "methodologyVersion",
+              "auraVersion",
+              "entryHash"
+            ],
+            "properties": {
+              "entryHash": {
+                "type": "string",
+                "pattern": "^sha256:(?!0{64}$)[a-f0-9]{64}$",
+                "description": "Non-placeholder SHA-256 hash of deterministically-serialized entry content."
+              }
+            }
+          }
+        },
+        "required": [
+          "references",
+          "provenance",
+          "lifecycle"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,973 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://breshev-engineering.github.io/aura-registry/schemas/aura-case/v1.1/schema.json",
+  "title": "AURA Engineering Case v1.1",
+  "description": "Canonical contract for an AURA engineering case under the Breshev Validation Chain (BVC) methodology. Single source of truth for static, dynamic, evidence, trust, and provenance data. All AURA modules read from and write to this structure. Generated Trust Packages serialize this object plus signature. Part of AURA v0.3.0-alpha and onward.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "caseId",
+    "caseType",
+    "createdAt",
+    "geometry",
+    "operating",
+    "staticResult",
+    "dynamicResult",
+    "evidence",
+    "trust",
+    "provenance",
+    "caseVisibility",
+    "license"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "AURA_CASE_V1.1"
+    },
+    "caseId": {
+      "type": "string",
+      "pattern": "^aura_case_[a-zA-Z0-9_]{6,64}$",
+      "description": "Unique case identifier. Format: aura_case_<slug>."
+    },
+    "caseType": {
+      "type": "string",
+      "enum": [
+        "rotor_bearing_design",
+        "bearing_only_design",
+        "dynamic_analysis",
+        "validation_anchor",
+        "benchmark_anchor",
+        "fem_comparison",
+        "experimental_comparison"
+      ]
+    },
+    "sourceModule": {
+      "type": "string",
+      "enum": [
+        "BearingWorkbench",
+        "Dynamic",
+        "Decision",
+        "Validation",
+        "Explorer",
+        "External"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revisionId": {
+      "type": "string",
+      "pattern": "^rev_[a-f0-9]{8,32}$"
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "role"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name in 'X.Y. Surname' format. Example: 'A.V. Breshev'."
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "founder_operational_lead",
+            "methodology_coauthor",
+            "academic_supervisor",
+            "aspirant_collaborator",
+            "customer_engineer",
+            "external_contributor"
+          ]
+        },
+        "affiliation": {
+          "type": "string"
+        },
+        "orcid": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+        }
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "required": [
+        "bearingType"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bearingType": {
+          "type": "string",
+          "enum": [
+            "cylindrical_journal",
+            "conical",
+            "spherical",
+            "thrust",
+            "hybrid",
+            "multi_recess",
+            "porous"
+          ]
+        },
+        "D_mm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "L_mm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "C_um": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "L_over_D": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "C_over_D": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "conicalAngleDeg": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 90
+        },
+        "feedCount": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "feedDiameterMm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "feedLocationRatio": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "operating": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "supplyPressureBar": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "ambientPressureBar": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "pressureRatio": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "operatingRpm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "temperatureC": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "gasType": {
+          "type": "string",
+          "enum": [
+            "air",
+            "nitrogen",
+            "helium",
+            "argon",
+            "custom"
+          ],
+          "default": "air"
+        }
+      }
+    },
+    "staticResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "loadCapacityN": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "stiffnessNPerUm": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "flowRateSlpm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "eccentricityRatio": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "solverBasis": {
+          "type": "string",
+          "enum": [
+            "analytical_perturbation",
+            "cfd_calibrated",
+            "fem",
+            "literature",
+            "experimental",
+            "hybrid"
+          ]
+        },
+        "solverVersion": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "solverBasis"
+      ]
+    },
+    "dynamicResult": {
+      "type": "object",
+      "required": [
+        "dampingEvidenceLevel",
+        "dampingSource",
+        "kcProvenance"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "firstCriticalRpm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "separationMargin": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "bodePeakAmplitudeUm": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "stiffnessMatrix": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "K_xx": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "K_xy": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "K_yx": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "K_yy": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "dampingMatrix": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "C_xx": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "C_xy": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "C_yx": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "C_yy": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "dampingEvidenceLevel": {
+          "type": "string",
+          "enum": [
+            "D0",
+            "D1",
+            "D2",
+            "D3",
+            "D4"
+          ],
+          "description": "BVC damping evidence ladder. D0 = proxy/fallback, D1 = literature-screening, D2 = perturbation-computed, D3 = CFD-calibrated, D4 = experimental/identified."
+        },
+        "dampingSource": {
+          "type": "string",
+          "enum": [
+            "proxy_constant",
+            "literature_correlation",
+            "perturbation_computed",
+            "cfd_calibrated",
+            "experimental_identified",
+            "user_provided"
+          ]
+        },
+        "kcProvenance": {
+          "type": "string",
+          "enum": [
+            "imported",
+            "computed",
+            "proxy",
+            "missing"
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "validationStatus",
+        "evidenceLevel"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "referenceAnchors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "anchorId",
+              "registryEntryId",
+              "distance"
+            ],
+            "properties": {
+              "anchorId": {
+                "type": "string"
+              },
+              "registryEntryId": {
+                "type": "string",
+                "pattern": "^VCR_[A-Z0-9_]{4,64}$"
+              },
+              "distance": {
+                "type": "number",
+                "minimum": 0
+              },
+              "similarityBreakdown": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "byGeometry": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "byOperating": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "byDynamic": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "femResidual": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "provided"
+          ],
+          "properties": {
+            "provided": {
+              "type": "boolean"
+            },
+            "sourceLabel": {
+              "type": "string"
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "aura",
+                  "fem",
+                  "deltaPct"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "aura": {
+                    "type": "number"
+                  },
+                  "fem": {
+                    "type": "number"
+                  },
+                  "deltaPct": {
+                    "type": "number"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "GOOD",
+                      "REVIEW",
+                      "POOR"
+                    ]
+                  }
+                }
+              }
+            },
+            "worstDeltaPct": {
+              "type": "number"
+            },
+            "overallStatus": {
+              "type": "string",
+              "enum": [
+                "GOOD",
+                "REVIEW",
+                "POOR",
+                "UNKNOWN"
+              ]
+            }
+          }
+        },
+        "experimentalResidual": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "provided"
+          ],
+          "properties": {
+            "provided": {
+              "type": "boolean"
+            },
+            "sourceLabel": {
+              "type": "string"
+            },
+            "measurementType": {
+              "type": "string",
+              "enum": [
+                "steady_state",
+                "transient",
+                "frequency_response",
+                "modal",
+                "other"
+              ]
+            },
+            "rows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "aura",
+                  "experimental",
+                  "deltaPct"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "aura": {
+                    "type": "number"
+                  },
+                  "experimental": {
+                    "type": "number"
+                  },
+                  "deltaPct": {
+                    "type": "number"
+                  },
+                  "measurementUncertaintyPct": {
+                    "type": [
+                      "number",
+                      "null"
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "GOOD",
+                      "REVIEW",
+                      "POOR"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "validationStatus": {
+          "type": "string",
+          "enum": [
+            "not_checked",
+            "checked",
+            "validated",
+            "rejected"
+          ],
+          "default": "not_checked"
+        },
+        "evidenceLevel": {
+          "type": "string",
+          "enum": [
+            "L0",
+            "L1",
+            "L2",
+            "L3",
+            "L4",
+            "L5"
+          ],
+          "description": "BVC overall evidence level. L0 = analytical only; L1 = analytical + literature; L2 = analytical + CFD; L3 = calibrated CFD; L4 = experimental supported; L5 = benchmark anchor."
+        }
+      }
+    },
+    "trust": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trustVersion",
+        "computedAt",
+        "computedResult",
+        "referenceContext",
+        "domainShift",
+        "femAgreement",
+        "experimentalEvidence",
+        "freezePermission",
+        "reasons"
+      ],
+      "properties": {
+        "trustVersion": {
+          "type": "string",
+          "const": "AURA_case_trust_v1"
+        },
+        "computedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "computedResult": {
+          "type": "string",
+          "enum": [
+            "AVAILABLE",
+            "STALE",
+            "MISSING"
+          ]
+        },
+        "referenceContext": {
+          "type": "string",
+          "enum": [
+            "REFERENCE_MATCHED",
+            "PARTIAL_MATCH",
+            "OUTSIDE_VERIFIED_REGION",
+            "NOT_CHECKED"
+          ]
+        },
+        "domainShift": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "MILD",
+            "MODERATE",
+            "SEVERE",
+            "UNKNOWN"
+          ]
+        },
+        "femAgreement": {
+          "type": "string",
+          "enum": [
+            "GOOD",
+            "REVIEW",
+            "POOR",
+            "UNKNOWN",
+            "NOT_PROVIDED"
+          ]
+        },
+        "experimentalEvidence": {
+          "type": "string",
+          "enum": [
+            "ATTACHED",
+            "REVIEW",
+            "WEAK",
+            "CONFLICT",
+            "NOT_PROVIDED"
+          ]
+        },
+        "freezePermission": {
+          "type": "string",
+          "enum": [
+            "ENGINEERING_FREEZE_ALLOWED",
+            "SCREENING_ONLY",
+            "DOWNGRADED",
+            "BLOCKED"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "info",
+                  "warning",
+                  "error",
+                  "blocking"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "builtAtIso",
+        "auraVersion"
+      ],
+      "properties": {
+        "builtAtIso": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "auraVersion": {
+          "type": "string",
+          "pattern": "^AURA v\\d+\\.\\d+\\.\\d+(-[a-z]+(-[a-z]+)?)?$",
+          "description": "AURA software version. Example: 'AURA v0.3.0-alpha'."
+        },
+        "methodologyVersion": {
+          "type": "string",
+          "default": "BVC_v1",
+          "description": "Breshev Validation Chain methodology version."
+        },
+        "auditPackages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "packageId",
+              "version",
+              "status"
+            ],
+            "properties": {
+              "packageId": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "PASS",
+                  "WARN",
+                  "FAIL",
+                  "N/A"
+                ]
+              }
+            }
+          }
+        },
+        "inputsHash": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        },
+        "reviewer": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "role",
+            "dateIso",
+            "verdict"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Format: 'X.Y. Surname'. Example: 'V.E. Breshev'."
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "methodology_coauthor",
+                "academic_supervisor",
+                "external_reviewer",
+                "internal_qa"
+              ]
+            },
+            "review_type": {
+              "type": "string",
+              "enum": [
+                "expert_methodology_review",
+                "academic_review",
+                "engineering_qa",
+                "cfd_pattern_review",
+                "experimental_data_review"
+              ]
+            },
+            "dateIso": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "verdict": {
+              "type": "string",
+              "enum": [
+                "approved",
+                "approved_with_notes",
+                "rejected"
+              ]
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "caseVisibility": {
+      "type": "string",
+      "enum": [
+        "private",
+        "internal",
+        "public_anchor"
+      ],
+      "default": "private"
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "MIT",
+            "CC-BY-4.0",
+            "CC-BY-SA-4.0",
+            "proprietary",
+            "proprietary_confidential"
+          ]
+        },
+        "attribution": {
+          "type": "string",
+          "description": "Required for CC-BY-4.0. Standard: 'A.V. Breshev, V.E. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry'."
+        },
+        "public_release": {
+          "type": "boolean"
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "saved",
+        "reviewed",
+        "validated_anchor",
+        "benchmark_anchor",
+        "rejected"
+      ],
+      "default": "saved"
+    },
+    "lifecycleHistory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status",
+          "dateIso"
+        ],
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "dateIso": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reviewer": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "userNotes": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "caseVisibility": {
+            "const": "public_anchor"
+          }
+        },
+        "required": [
+          "caseVisibility"
+        ]
+      },
+      "then": {
+        "properties": {
+          "license": {
+            "properties": {
+              "type": {
+                "const": "CC-BY-4.0"
+              },
+              "public_release": {
+                "const": true
+              }
+            },
+            "required": [
+              "type",
+              "attribution",
+              "public_release"
+            ]
+          },
+          "lifecycle": {
+            "enum": [
+              "validated_anchor",
+              "benchmark_anchor"
+            ]
+          }
+        },
+        "required": [
+          "author",
+          "lifecycle"
+        ]
+      }
+    }
+  ]
+}
