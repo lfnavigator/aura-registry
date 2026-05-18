@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://breshev-engineering.github.io/aura-registry/schemas/aura-vcr/v1.0/schema.json",
+  "$id": "https://lfnavigator.github.io/aura-registry/schemas/aura-vcr/v1.0/schema.json",
   "title": "AURA Validation Chain Registry Entry v1.0",
   "description": "Canonical contract for an entry in the Breshev Validation Chain (BVC) Registry. Describes a validated reference anchor with full provenance chain: industrial/experimental baseline → analytical method → CFD calibration → experimental verification, with explicit residuals between each step and a defined applicability region. This is the methodological backbone of AURA. Each entry is a publishable, auditable, citable scientific artifact. Governance-reinforced: residual-to-previous is explicit for every step, baseline residual is null, non-baseline residual is required, sources and expert review are explicit, attached artifacts require SHA-256 hashes, public anchors require CC-BY-4.0 attribution and non-placeholder entry hashes, and chainStatus supports complete_with_notes.",
   "type": "object",

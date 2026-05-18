@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://breshev-engineering.github.io/aura-registry/schemas/aura-case/v1.1/schema.json",
+  "$id": "https://lfnavigator.github.io/aura-registry/schemas/aura-case/v1.1/schema.json",
   "title": "AURA Engineering Case v1.1",
   "description": "Canonical contract for an AURA engineering case under the Breshev Validation Chain (BVC) methodology. Single source of truth for static, dynamic, evidence, trust, and provenance data. All AURA modules read from and write to this structure. Generated Trust Packages serialize this object plus signature. Part of AURA v0.3.0-alpha and onward.",
   "type": "object",

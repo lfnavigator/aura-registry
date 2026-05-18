@@ -164,7 +164,7 @@ Cases in `cases/internal/` (if present) are proprietary and not published.
 
 If you use the BVC methodology, schemas, or any anchor case from this registry in academic publications, please cite:
 
-> Breshev, V.E., & Breshev, A.V. (2026). *Breshev Validation Chain Methodology for Aerostatic Gas-Bearing Rotor Design*. AURA Engineering Platform / Breshev Engineering. https://github.com/Breshev-Engineering/aura-registry
+> Breshev, V.E., & Breshev, A.V. (2026). *Breshev Validation Chain Methodology for Aerostatic Gas-Bearing Rotor Design*. AURA Engineering Platform / Breshev Engineering. https://github.com/lfnavigator/aura-registry
 
 For version-specific citation, cite the repository release tag or archived DOI when available.
 
@@ -263,7 +263,7 @@ We do not accept anchor cases without traceable provenance, residual data, or ex
 
 For technical questions, anchor case proposals, or collaboration inquiries:
 
-- **GitHub Issues** (preferred for technical/schema topics): https://github.com/Breshev-Engineering/aura-registry/issues
+- **GitHub Issues** (preferred for technical/schema topics): https://github.com/lfnavigator/aura-registry/issues
 - **Email**: aura@breshevengineering.com
 - **Website**: https://breshevengineering.com
 - **LinkedIn**: https://www.linkedin.com/in/alekseybreshev/
