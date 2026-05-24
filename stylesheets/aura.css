@@ -1,0 +1,88 @@
+/* ============================================================
+   AURA brand color overlay for mkdocs-material
+   Brand navy sampled from logo: #081C2F
+   ============================================================ */
+
+:root {
+  /* Primary — deep navy from logo */
+  --md-primary-fg-color:           #081C2F;
+  --md-primary-fg-color--light:    #1F324A;
+  --md-primary-fg-color--dark:     #050F1C;
+  --md-primary-bg-color:           #FBFCFD;
+  --md-primary-bg-color--light:    #FBFCFD;
+
+  /* Accent — copper rubrication */
+  --md-accent-fg-color:            #D17849;
+  --md-accent-fg-color--transparent: rgba(209, 120, 73, 0.1);
+  --md-accent-bg-color:            #FBFCFD;
+  --md-accent-bg-color--light:     #FBFCFD;
+
+  /* Typography link colors */
+  --md-typeset-a-color:            #1F4D7F;
+}
+
+/* Dark mode — slate variant */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:           #081C2F;
+  --md-primary-fg-color--light:    #1F324A;
+  --md-primary-fg-color--dark:     #050F1C;
+  --md-accent-fg-color:            #E69874;
+  --md-typeset-a-color:            #3973B6;
+  --md-default-bg-color:           #050F1C;
+}
+
+/* Refine code blocks */
+.md-typeset code {
+  font-family: "JetBrains Mono", "Menlo", monospace;
+  font-size: 0.875em;
+}
+
+/* Refine table styling */
+.md-typeset table:not([class]) {
+  font-size: 0.85rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--md-primary-fg-color);
+  color: #FBFCFD;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Headings — match landing page typography pairing */
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.md-typeset h1 {
+  font-weight: 400;
+}
+
+/* Admonition styling */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Footer */
+.md-footer {
+  background: var(--md-primary-fg-color);
+}
+
+/* Header */
+.md-header {
+  background: var(--md-primary-fg-color);
+}
+
+/* Tabs */
+.md-tabs {
+  background: var(--md-primary-fg-color--dark);
+}
