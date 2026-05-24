@@ -1,0 +1,10 @@
+{
+  "data_fem_vs_experiment_p05_load_capacity.csv": "6e6832c74e8056a67b8c73ad18c5897851b1f9614bebf6e4163bf00755c829a1",
+  "data_pm_vs_fem_p05_axial_stiffness.csv": "f0f24085efb21b569ac3de7e32d6c530ec25a7ca1401d56069ab69a8c8a50b92",
+  "data_pm_vs_fem_p04_load_capacity_supporting.csv": "3793e811c669471cbb85680d87e268ed639740b921313f1da7441a0b55b12fcb",
+  "source_record_fem_vs_experiment_p05.json": "cdcde1517daa616a4cc2423e60300992cdd890ed95227ff5d39f4e2e2f853e9b",
+  "source_record_pm_vs_fem_p05_axial_stiffness.json": "9ca872711568958169561bca436c87f6fbc2b180481eef0712a21c074cd92d94",
+  "source_record_pm_vs_fem_p04_load_capacity.json": "3971b56b6a7d22a1f5c456601a99ca7254548681f2c8d27c546f7d671e7b68c4",
+  "source_meta_v023.json": "6ae09e100964c6d235917c441c43f926190102cb1d4f7ba88a8a0ca1556839fe",
+  "uploaded_results_xls_sha256_reference_only": "05a4b443acd0dcf5f03b8600c56ea1ea8feb14ab13eddbeef1c4992a68dd8b16"
+}

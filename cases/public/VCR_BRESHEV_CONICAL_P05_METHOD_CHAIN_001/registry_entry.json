@@ -1,0 +1,364 @@
+{
+  "schemaVersion": "AURA_VCR_V1.0-compatible_public_scoped_entry",
+  "entryId": "VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001",
+  "title": "Breshev conical aerostatic bearing P05 validation chain: experiment-calibrated FEM to perturbation method",
+  "methodology": "Breshev Validation Chain (BVC)",
+  "platform": "AURA Engineering Platform",
+  "auraVersion": "AURA v0.3.0-alpha",
+  "registryVisibility": "public_anchor",
+  "lifecycle": "validated_anchor",
+  "acceptanceLevel": "C_scoped_engineering_evidence",
+  "evidenceLevel": "L4_scoped_experimental_pedigree",
+  "bearingFamily": "conical_aerostatic_spindle",
+  "publicClaim": {
+    "approved": "AURA/Breshev perturbation-method workflow is supported by an experiment-calibrated FEM chain for the documented conical aerostatic bearing family.",
+    "notApproved": [
+      "full universal gas-bearing validation",
+      "full L5 BVC chain",
+      "rotor-dynamic engineering-freeze-grade validation",
+      "claim that every listed PM/FEM row is itself a direct experiment row"
+    ]
+  },
+  "chainStatus": "complete_with_notes",
+  "chainSteps": [
+    {
+      "stepOrder": 1,
+      "stepId": "S1_INDUSTRIAL_AND_EXPERIMENTAL_BASELINE",
+      "stepType": "industrial_experimental_baseline",
+      "status": "ACCEPTED_WITH_NOTES",
+      "source": {
+        "primaryArchive": [
+          "Breshev family experimental archive",
+          "Monokristall mono-crystal cutting spindle / conical aerostatic support research context",
+          "A.V. Breshev PhD dissertation, V.E. Breshev Doctor of Science dissertation"
+        ],
+        "registrySource": "source_meta_v023.json",
+        "note": "The user states that the FEM models were originally validated against real machine data, including the mono-crystal cutting machine, before being used as calibration/reference for the perturbation method."
+      },
+      "dataAvailable": [
+        "industrial baseline context",
+        "experimental validation pedigree",
+        "patent/dissertation references"
+      ],
+      "residualToPrevious": null,
+      "acceptanceCriteria": {
+        "type": "baseline_source_step",
+        "status": "no_residual_required"
+      },
+      "expertReview": {
+        "reviewer": "V.E. Breshev",
+        "status": "pending_final_public_signoff",
+        "requiredBeforePublicExpansion": "Confirm exact primary table/figure/archive citation for S1."
+      }
+    },
+    {
+      "stepOrder": 2,
+      "stepId": "S2_FEM_VS_EXPERIMENT_P05_LOAD_CAPACITY",
+      "stepType": "calibrated_fem_against_experiment",
+      "status": "PASS",
+      "source": {
+        "file": "data_fem_vs_experiment_p05_load_capacity.csv",
+        "extractedFrom": "Validation.jsx DB.loadCapacity.p05",
+        "sourceRecord": "source_record_fem_vs_experiment_p05.json"
+      },
+      "dataAvailable": [
+        "clearance_um",
+        "FEM load capacity",
+        "experimental load capacity",
+        "residuals"
+      ],
+      "residualToPrevious": {
+        "comparison": "FEM vs experiment",
+        "quantity": "load_capacity_N",
+        "n": 5,
+        "meanAbsResidualPct": 3.5285292763349516,
+        "worstAbsDeltaPct": 3.937637417549468,
+        "overallStatus": "GOOD",
+        "acceptanceThresholdPct": 5.0,
+        "rows": [
+          {
+            "clearance_um": 58,
+            "thisValue": 209.0,
+            "referenceValue": 216.942,
+            "deltaPct": -3.660886319845861,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 62,
+            "thisValue": 200.12,
+            "referenceValue": 208.0,
+            "deltaPct": -3.7884615384615365,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 66,
+            "thisValue": 190.17,
+            "referenceValue": 197.0,
+            "deltaPct": -3.4670050761421387,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 70,
+            "thisValue": 179.26,
+            "referenceValue": 185.0,
+            "deltaPct": -3.102702702702708,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 74,
+            "thisValue": 165.84,
+            "referenceValue": 171.0,
+            "deltaPct": -3.017543859649121,
+            "status": "GOOD"
+          }
+        ]
+      },
+      "acceptanceCriteria": {
+        "maxAbsResidualPct": 5.0,
+        "minPoints": 5,
+        "requiredComparison": "FEM against experiment"
+      },
+      "expertReview": {
+        "reviewer": "V.E. Breshev",
+        "status": "pending_final_public_signoff",
+        "note": "Numeric row passes scoped criterion; final public release should add exact primary archive/dissertation/table locator if available."
+      }
+    },
+    {
+      "stepOrder": 3,
+      "stepId": "S3_PM_AURA_METHOD_VS_VALIDATED_FEM_P05_AXIAL_STIFFNESS",
+      "stepType": "perturbation_method_vs_validated_fem",
+      "status": "PASS",
+      "source": {
+        "file": "data_pm_vs_fem_p05_axial_stiffness.csv",
+        "extractedFrom": "Validation.jsx DB.axialStiffness.p05",
+        "sourceRecord": "source_record_pm_vs_fem_p05_axial_stiffness.json"
+      },
+      "dataAvailable": [
+        "clearance_um",
+        "FEM axial stiffness",
+        "PM/AURA method axial stiffness",
+        "residuals"
+      ],
+      "residualToPrevious": {
+        "comparison": "perturbation method vs FEM",
+        "quantity": "axial_stiffness",
+        "n": 6,
+        "meanAbsResidualPct": 5.627355659568781,
+        "worstAbsDeltaPct": 7.142857142857142,
+        "overallStatus": "GOOD",
+        "acceptanceThresholdPct": 10.0,
+        "rows": [
+          {
+            "clearance_um": 20,
+            "thisValue": 15.1,
+            "referenceValue": 15.8,
+            "deltaPct": -4.430379746835449,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 25,
+            "thisValue": 12.3,
+            "referenceValue": 12.9,
+            "deltaPct": -4.651162790697672,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 30,
+            "thisValue": 9.9,
+            "referenceValue": 10.4,
+            "deltaPct": -4.8076923076923075,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 35,
+            "thisValue": 7.9,
+            "referenceValue": 8.4,
+            "deltaPct": -5.952380952380952,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 40,
+            "thisValue": 6.5,
+            "referenceValue": 7.0,
+            "deltaPct": -7.142857142857142,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 45,
+            "thisValue": 5.5,
+            "referenceValue": 5.9,
+            "deltaPct": -6.7796610169491585,
+            "status": "GOOD"
+          }
+        ]
+      },
+      "acceptanceCriteria": {
+        "maxAbsResidualPct": 10.0,
+        "minPoints": 6,
+        "requiredComparison": "AURA/Breshev perturbation method against FEM"
+      },
+      "expertReview": {
+        "reviewer": "V.E. Breshev",
+        "status": "pending_final_public_signoff"
+      }
+    },
+    {
+      "stepOrder": 4,
+      "stepId": "S4_SUPPORTING_PM_VS_FEM_LOAD_CAPACITY_P04",
+      "stepType": "supporting_method_comparison",
+      "status": "PASS",
+      "source": {
+        "file": "data_pm_vs_fem_p04_load_capacity_supporting.csv",
+        "extractedFrom": "Validation.jsx DB.loadCapacity.p04",
+        "sourceRecord": "source_record_pm_vs_fem_p04_load_capacity.json"
+      },
+      "dataAvailable": [
+        "clearance_um",
+        "FEM load capacity",
+        "PM/AURA method load capacity",
+        "residuals"
+      ],
+      "residualToPrevious": {
+        "comparison": "perturbation method vs FEM",
+        "quantity": "load_capacity_N",
+        "n": 6,
+        "meanAbsResidualPct": 5.7196823382260975,
+        "worstAbsDeltaPct": 7.6923076923076925,
+        "overallStatus": "GOOD",
+        "acceptanceThresholdPct": 10.0,
+        "rows": [
+          {
+            "clearance_um": 20,
+            "thisValue": 78,
+            "referenceValue": 82,
+            "deltaPct": -4.878048780487805,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 25,
+            "thisValue": 62,
+            "referenceValue": 65,
+            "deltaPct": -4.615384615384616,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 30,
+            "thisValue": 48,
+            "referenceValue": 51,
+            "deltaPct": -5.88235294117647,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 35,
+            "thisValue": 38,
+            "referenceValue": 40,
+            "deltaPct": -5.0,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 40,
+            "thisValue": 30,
+            "referenceValue": 32,
+            "deltaPct": -6.25,
+            "status": "GOOD"
+          },
+          {
+            "clearance_um": 45,
+            "thisValue": 24,
+            "referenceValue": 26,
+            "deltaPct": -7.6923076923076925,
+            "status": "GOOD"
+          }
+        ]
+      },
+      "acceptanceCriteria": {
+        "maxAbsResidualPct": 10.0,
+        "minPoints": 6,
+        "requiredComparison": "supporting AURA/Breshev perturbation-method load-capacity comparison"
+      },
+      "expertReview": {
+        "reviewer": "V.E. Breshev",
+        "status": "pending_final_public_signoff"
+      }
+    }
+  ],
+  "applicabilityRegion": {
+    "bearingFamily": "conical aerostatic supports / non-contact spindle context",
+    "clearance_um": {
+      "documentedRanges": {
+        "fem_vs_experiment": [
+          58,
+          74
+        ],
+        "pm_vs_fem": [
+          20,
+          45
+        ]
+      },
+      "extrapolationAllowed": false
+    },
+    "pressureCondition": "P05 / ps≈5 atm for the principal experiment/FEM row; P04 row used as supporting method comparison only",
+    "workingFluid": "air",
+    "geometry": "source-specific conical aerostatic bearing geometry from Breshev archive; exact public geometry fields to be added when primary table is cleared for release"
+  },
+  "limitations": [
+    "This is a public scoped chain anchor, not a full L5 BVC chain.",
+    "The public package documents the experimental pedigree and FEM/PM numerical rows but still requires exact primary archive/dissertation/table locator for top-tier journal submission.",
+    "The S3 PM-vs-FEM axial-stiffness row and S4 PM-vs-FEM load-capacity supporting row are not direct experimental rows; their experimental relevance comes through the FEM calibration/pedigree in S1–S2.",
+    "No claim is made for cylindrical journal bearings, rotor-dynamic engineering freeze, or universal gas-bearing validation."
+  ],
+  "license": {
+    "type": "CC-BY-4.0",
+    "public_release": true,
+    "attribution": "A.V. Breshev, V.E. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry"
+  },
+  "provenance": {
+    "createdBy": "A.V. Breshev / AURA Engineering Platform",
+    "methodologyVersion": "Breshev Validation Chain (BVC) v0.1",
+    "auraVersion": "AURA v0.3.0-alpha",
+    "sourceHashes": {
+      "data_fem_vs_experiment_p05_load_capacity.csv": "6e6832c74e8056a67b8c73ad18c5897851b1f9614bebf6e4163bf00755c829a1",
+      "data_pm_vs_fem_p05_axial_stiffness.csv": "f0f24085efb21b569ac3de7e32d6c530ec25a7ca1401d56069ab69a8c8a50b92",
+      "data_pm_vs_fem_p04_load_capacity_supporting.csv": "3793e811c669471cbb85680d87e268ed639740b921313f1da7441a0b55b12fcb",
+      "source_record_fem_vs_experiment_p05.json": "cdcde1517daa616a4cc2423e60300992cdd890ed95227ff5d39f4e2e2f853e9b",
+      "source_record_pm_vs_fem_p05_axial_stiffness.json": "9ca872711568958169561bca436c87f6fbc2b180481eef0712a21c074cd92d94",
+      "source_record_pm_vs_fem_p04_load_capacity.json": "3971b56b6a7d22a1f5c456601a99ca7254548681f2c8d27c546f7d671e7b68c4",
+      "source_meta_v023.json": "6ae09e100964c6d235917c441c43f926190102cb1d4f7ba88a8a0ca1556839fe",
+      "uploaded_results_xls_sha256_reference_only": "05a4b443acd0dcf5f03b8600c56ea1ea8feb14ab13eddbeef1c4992a68dd8b16"
+    },
+    "entryHash": "9c000af267bf46434d18d4cdef1c461771d21400ba54a144ef2421f4027b54e4"
+  },
+  "topLevelExpertReview": {
+    "reviewer": "V.E. Breshev",
+    "role": "methodology co-author / domain expert",
+    "status": "pending_final_public_signoff",
+    "decision": "release_candidate_ready_with_source-locator_check"
+  },
+  "references": [
+    {
+      "id": "BRESHEV-PHD",
+      "ref": "Breshev A.V., PhD dissertation, East-Ukrainian Dahl National University, Lugansk, 2013"
+    },
+    {
+      "id": "BRESHEV-DSC",
+      "ref": "Breshev V.E., Doctor of Science dissertation"
+    },
+    {
+      "id": "PATENT-74026",
+      "ref": "Patent UA №74026 — Aerostatic bearing pivot"
+    },
+    {
+      "id": "PATENT-99374",
+      "ref": "Patent UA №99374 — Non-contact spindle for mono-crystal cutting"
+    },
+    {
+      "id": "PATENT-98084",
+      "ref": "Patent UA №98084 — Spindle unit with gas bearings"
+    },
+    {
+      "id": "SCOPUS-2013",
+      "ref": "Breshev A.V., Scopus publication + monograph, 2013"
+    }
+  ]
+}

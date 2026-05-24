@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "AURA_validation_registry_extract_v023",
+  "sourceFile": "Validation.jsx",
+  "sourceFileSha256": "0174baf096896d7f1506b097bd28af506f160e5b322492edc55f62c8f3f5df49",
+  "extractedAt": "2026-05-23",
+  "standard": "ASME V&V 10-2006 / ASME V&V 20-2009",
+  "methodology": "Perturbation Method (analytical) verified via FEM (ANSYS Fluent 2D) calibrated against physical bench experiment. Uncertainty: systematic + random per ASME V&V 20 §5.",
+  "sources": [
+    {
+      "id": "BRESHEV-PHD",
+      "ref": "Breshev A.V., PhD dissertation, East-Ukrainian Dahl National University, Lugansk, 2013"
+    },
+    {
+      "id": "BRESHEV-DSC",
+      "ref": "Breshev V.E., Doctor of Science dissertation"
+    },
+    {
+      "id": "PATENT-74026",
+      "ref": "Patent UA №74026 — Aerostatic bearing pivot"
+    },
+    {
+      "id": "PATENT-99374",
+      "ref": "Patent UA №99374 — Non-contact spindle for mono-crystal cutting"
+    },
+    {
+      "id": "PATENT-98084",
+      "ref": "Patent UA №98084 — Spindle unit with gas bearings"
+    },
+    {
+      "id": "SCOPUS-2013",
+      "ref": "Breshev A.V., Scopus publication + monograph, 2013"
+    }
+  ],
+  "uncertaintyPct": {
+    "radialLoad": {
+      "systematic": 2.0,
+      "random": 1.5
+    },
+    "axialLoad": {
+      "systematic": 1.5,
+      "random": 1.0
+    },
+    "airFlow": {
+      "systematic": 1.1,
+      "random": 0.8
+    },
+    "torque": {
+      "systematic": 2.5,
+      "random": 2.0
+    },
+    "stiffness": {
+      "systematic": 3.0,
+      "random": 2.0
+    }
+  }
+}

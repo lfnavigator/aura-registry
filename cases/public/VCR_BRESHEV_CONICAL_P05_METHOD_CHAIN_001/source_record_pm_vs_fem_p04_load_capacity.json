@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "AURA_VCR_V1.1_draft",
+  "caseId": "VCR_BRESHEV_CONICAL_LOADCAPACITY_P04_PM_VS_FEM_001",
+  "title": "loadCapacity p04: PM vs FEM",
+  "validationLayer": "verification",
+  "registryVisibility": "internal_anchor_candidate",
+  "lifecycle": "method_verified_from_existing_validation_js",
+  "bearingFamily": "conical_aerostatic_spindle",
+  "source": "Validation.jsx DB.loadCapacity.p04",
+  "referenceLabel": "FEM",
+  "measuredLabel": "PM",
+  "residualSummary": {
+    "n": 6,
+    "meanAbsResidualPct": 5.7196823382260975,
+    "maxAbsResidualPct": 7.6923076923076925,
+    "rmse": 2.7688746209726918,
+    "r2": 0.979531296351231,
+    "signedResidualsPct": [
+      -4.878048780487805,
+      -4.615384615384616,
+      -5.88235294117647,
+      -5.0,
+      -6.25,
+      -7.6923076923076925
+    ]
+  },
+  "status": "PASS",
+  "data": {
+    "clearance_um": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    "FEM": [
+      82,
+      65,
+      51,
+      40,
+      32,
+      26
+    ],
+    "PM": [
+      78,
+      62,
+      48,
+      38,
+      30,
+      24
+    ]
+  },
+  "limitations": [
+    "PM/FEM comparison; experiment columns are absent for this row unless otherwise stated."
+  ]
+}

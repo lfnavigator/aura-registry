@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "AURA_VCR_V1.1_draft",
+  "caseId": "VCR_BRESHEV_CONICAL_AXIALSTIFFNESS_P05_PM_VS_FEM_001",
+  "title": "axialStiffness p05: PM vs FEM",
+  "validationLayer": "verification",
+  "registryVisibility": "internal_anchor_candidate",
+  "lifecycle": "method_verified_from_existing_validation_js",
+  "bearingFamily": "conical_aerostatic_spindle",
+  "source": "Validation.jsx DB.axialStiffness.p05",
+  "referenceLabel": "FEM",
+  "measuredLabel": "PM",
+  "residualSummary": {
+    "n": 6,
+    "meanAbsResidualPct": 5.627355659568781,
+    "maxAbsResidualPct": 7.142857142857142,
+    "rmse": 0.5416025603090643,
+    "r2": 0.9750543324199187,
+    "signedResidualsPct": [
+      -4.430379746835449,
+      -4.651162790697672,
+      -4.8076923076923075,
+      -5.952380952380952,
+      -7.142857142857142,
+      -6.7796610169491585
+    ]
+  },
+  "status": "PASS",
+  "data": {
+    "clearance_um": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45
+    ],
+    "FEM": [
+      15.8,
+      12.9,
+      10.4,
+      8.4,
+      7.0,
+      5.9
+    ],
+    "PM": [
+      15.1,
+      12.3,
+      9.9,
+      7.9,
+      6.5,
+      5.5
+    ]
+  },
+  "limitations": [
+    "PM/FEM comparison; experiment columns are absent for this row unless otherwise stated."
+  ]
+}

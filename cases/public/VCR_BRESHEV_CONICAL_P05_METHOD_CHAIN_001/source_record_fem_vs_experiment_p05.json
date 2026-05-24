@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "AURA_VCR_V1.1_draft",
+  "caseId": "VCR_BRESHEV_CONICAL_LOADCAPACITY_P05_FEM_VS_EXPERIMENT_001",
+  "title": "loadCapacity p05: FEM vs experiment",
+  "validationLayer": "engineering_evidence",
+  "registryVisibility": "internal_anchor_candidate",
+  "lifecycle": "internal_validated_from_existing_validation_js",
+  "bearingFamily": "conical_aerostatic_spindle",
+  "source": "Validation.jsx DB.loadCapacity.p05",
+  "referenceLabel": "FEM",
+  "measuredLabel": "Experiment",
+  "residualSummary": {
+    "n": 5,
+    "meanAbsResidualPct": 3.5285292763349516,
+    "maxAbsResidualPct": 3.937637417549468,
+    "rmse": 6.802820944284809,
+    "r2": 0.799869012517258,
+    "signedResidualsPct": [
+      3.8000000000000034,
+      3.937637417549468,
+      3.591523373823428,
+      3.2020528840789964,
+      3.111432706222863
+    ]
+  },
+  "status": "PASS",
+  "data": {
+    "clearance_um": [
+      58,
+      62,
+      66,
+      70,
+      74
+    ],
+    "FEM": [
+      209.0,
+      200.12,
+      190.17,
+      179.26,
+      165.84
+    ],
+    "Experiment": [
+      216.942,
+      208.0,
+      197.0,
+      185.0,
+      171.0
+    ]
+  },
+  "limitations": [
+    "This is an experimental row extracted from Validation.jsx."
+  ]
+}
