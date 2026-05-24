@@ -1,0 +1,168 @@
+# ============================================================
+# AURA Validation Chain Registry — Documentation Site
+# Build: pip install mkdocs-material && mkdocs serve
+# Deploy: pip install mkdocs-material && mkdocs gh-deploy
+# ============================================================
+
+site_name: AURA Validation Chain Registry
+site_description: >-
+  Open evidence-gated validation registry for aerostatic gas-bearing
+  rotor-dynamic engineering software. Built by Breshev Engineering.
+site_url: https://lfnavigator.github.io/aura-registry/
+site_author: Breshev Engineering
+
+repo_url: https://github.com/lfnavigator/aura-registry
+repo_name: lfnavigator/aura-registry
+edit_uri: edit/main/docs/
+
+copyright: >-
+  © 2026 Breshev Engineering · CC-BY-4.0 documentation · MIT-licensed code
+
+# ============================================================
+# Theme — Material with AURA brand colors
+# ============================================================
+
+theme:
+  name: material
+  language: en
+  font:
+    text: Manrope
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+extra_css:
+  - stylesheets/aura.css
+
+# ============================================================
+# Navigation
+# ============================================================
+
+nav:
+  - Home: index.md
+
+  - Methodology:
+      - methodology/index.md
+      - Two-layer registry: methodology/two-layer-registry.md
+      - Acceptance policy: methodology/acceptance-policy.md
+      - Triangulation: methodology/triangulation.md
+      - Two-gate model: methodology/two-gate-model.md
+
+  - Registry:
+      - registry/index.md
+      - Solver-sanity layer: registry/solver-sanity.md
+      - Engineering-evidence layer: registry/engineering-evidence.md
+      - Diagnostic records: registry/diagnostic.md
+      - Forensic records: registry/forensic.md
+      - Lifecycle states: registry/lifecycle.md
+
+  - Schema:
+      - schema/index.md
+      - v1.1 reference: schema/v1-1.md
+      - Conditional rules: schema/conditional-rules.md
+      - Validation tools: schema/validation-tools.md
+      - Migration guide v1.0 → v1.1: schema/migration-v1-0-to-v1-1.md
+
+  - Contributing:
+      - contributing/index.md
+      - Anchor submission: contributing/anchors.md
+      - Triangulation submission: contributing/triangulations.md
+      - Code of conduct: contributing/code-of-conduct.md
+      - Licensing: contributing/licensing.md
+
+  - About:
+      - about/index.md
+      - Team: about/team.md
+      - Citation: about/citation.md
+      - Roadmap: about/roadmap.md
+
+# ============================================================
+# Markdown extensions
+# ============================================================
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: ¶
+      permalink_title: Anchor link to this section
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# ============================================================
+# Plugins
+# ============================================================
+
+plugins:
+  - search
+  - tags
+
+# ============================================================
+# Extra
+# ============================================================
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lfnavigator/aura-registry
+      name: AURA registry on GitHub
+  generator: true
+
+# ============================================================
+# Custom brand color tokens applied via docs/stylesheets/aura.css
+# ============================================================
