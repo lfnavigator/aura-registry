@@ -84,21 +84,10 @@ eccentricity range, supply pressure range, geometry class) and reports
 residuals at each chain step. The anchor is trusted only within the
 declared region; outside that region, the trust verdict downgrades.
 
-Public-anchor promotion in the engineering-evidence layer requires
-scope discipline: source provenance, residuals, applicability region,
-expert review, and explicit limitations. Full external-benchmark
-promotion additionally requires independent external parity or
-triangulation. A scoped engineering-evidence anchor may be public when it
-does not overclaim beyond its documented chain.
-
-
-!!! success "Current engineering-evidence milestone"
-    The registry now includes its first public scoped Breshev gas-bearing
-    method-chain anchor: `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`.
-    It links industrial spindle evidence, experimentally validated FEM
-    results, and the Breshev perturbation-method route used in AURA. The
-    anchor is public as scoped engineering evidence; it is not a universal
-    validation claim for every gas-bearing configuration.
+Public-anchor promotion in the engineering-evidence layer additionally
+requires **independent external triangulation** from sources outside the
+implementer's group — closing the self-validation vulnerability
+structurally rather than asking for politely.
 
 See the [two-layer registry detailed page](two-layer-registry.md) for the
 schema-level treatment.

@@ -1,7 +1,7 @@
 # ============================================================
-# AURA Validation Chain Registry — Documentation Site
-# Build: pip install mkdocs-material && mkdocs serve
-# Deploy: pip install mkdocs-material && mkdocs gh-deploy
+# AURA Validation Chain Registry — Documentation + Blog Site
+# Build: pip install "mkdocs-material[blog]" && mkdocs serve
+# Deploy: mkdocs gh-deploy
 # ============================================================
 
 site_name: AURA Validation Chain Registry
@@ -12,19 +12,21 @@ site_url: https://lfnavigator.github.io/aura-registry/
 site_author: Breshev Engineering
 
 repo_url: https://github.com/lfnavigator/aura-registry
-repo_name: lfnavigator/aura-registry
+repo_name: AURA Registry
 edit_uri: edit/main/docs/
 
 copyright: >-
   © 2026 Breshev Engineering · CC-BY-4.0 documentation · MIT-licensed code
 
 # ============================================================
-# Theme — Material with AURA brand colors
+# Theme — Material with AURA brand
 # ============================================================
 
 theme:
   name: material
   language: en
+  logo: assets/aura-logo.png
+  favicon: assets/favicon.png
   font:
     text: Manrope
     code: JetBrains Mono
@@ -52,10 +54,13 @@ theme:
     - navigation.footer
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
     - content.code.annotate
     - content.action.edit
+    - content.tabs.link
     - toc.follow
+    - announce.dismiss
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil
@@ -99,6 +104,7 @@ nav:
       - Triangulation submission: contributing/triangulations.md
       - Code of conduct: contributing/code-of-conduct.md
       - Licensing: contributing/licensing.md
+
 
   - About:
       - about/index.md
@@ -145,7 +151,7 @@ markdown_extensions:
   - pymdownx.tilde
 
 # ============================================================
-# Plugins
+# Plugins (blog plugin requires mkdocs-material 9.2+)
 # ============================================================
 
 plugins:
@@ -161,8 +167,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/lfnavigator/aura-registry
       name: AURA registry on GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:aura@breshevengineering.com
+      name: Email Breshev Engineering
   generator: true
-
-# ============================================================
-# Custom brand color tokens applied via docs/stylesheets/aura.css
-# ============================================================

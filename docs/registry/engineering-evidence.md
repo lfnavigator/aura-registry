@@ -1,74 +1,73 @@
 # Engineering-Evidence Layer
 
 The engineering-evidence layer contains validation chains that connect a
-calculation route to measured physical behavior. Unlike solver-sanity
-anchors, these records are not merely checking that a mathematical
-operation was implemented correctly. They ask whether a calculation
-workflow is credible for a documented engineering case.
+calculation method to physical or experimentally grounded engineering data.
+Unlike solver-sanity anchors, these records are not only about whether the
+math is implemented correctly. They document why a result can support a
+particular engineering claim inside a defined applicability region.
 
-## First public scoped anchor
+!!! success "First public scoped gas-bearing anchor"
+    The registry now contains the first public scoped Breshev gas-bearing
+    method-chain anchor:
+    [`VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`](https://github.com/lfnavigator/aura-registry/tree/main/cases/public/VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001).
 
-The registry now contains the first public Breshev gas-bearing
-method-chain anchor:
+## First public Breshev gas-bearing method-chain anchor
 
-[`VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`](https://github.com/lfnavigator/aura-registry/tree/main/cases/public/VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001)
+**Entry:** `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`
 
-This anchor is a conical aerostatic bearing method-chain record. It links:
+**Scope:** conical aerostatic bearing, P05 method-chain validation.
 
-1. industrial spindle / experimental evidence from the Breshev research
-   program;
-2. FEM / МКЭ results validated against experiment;
-3. Breshev perturbation-method / МВ results checked against the validated
-   FEM route;
-4. the AURA calculation basis derived from that perturbation-method route.
+**What it links:**
+
+1. Industrial / experimental spindle evidence from the Breshev research line.
+2. FEM / МКЭ results validated against experimental load-capacity data.
+3. The Breshev perturbation method / МВ used as the calculation basis in AURA.
+4. Supporting PM-vs-FEM comparisons for the documented conical bearing family.
 
 ## Reported residuals
 
-The public folder includes CSV data, source records, source hashes, a
-governance note, and a registry entry.
+| Chain part | Quantity | Worst residual | Role |
+|---|---:|---:|---|
+| FEM vs experiment, P05 | Load capacity | 3.938% | Experimental grounding of the FEM route |
+| PM/AURA vs validated FEM route, P05 | Axial stiffness | 7.143% | Method-chain support |
+| PM vs FEM, P04 | Load capacity | 7.692% | Supporting comparison |
 
-| Chain component | Role | Reported worst residual |
-|---|---|---:|
-| FEM vs experiment, P05 load capacity | experimental support for the FEM route | 3.938% |
-| Perturbation method / AURA route vs validated FEM, P05 axial stiffness | main method-chain comparison | 7.143% |
-| Perturbation method vs FEM, P04 load capacity | supporting method-chain comparison | 7.692% |
+These residuals make the entry suitable as a **public scoped
+engineering-evidence anchor**. They do not upgrade the full AURA platform to
+universal gas-bearing validation.
 
-## What this validates
+## What this anchor supports
 
-This anchor supports the claim that, for the documented conical aerostatic
-bearing family, the Breshev perturbation-method route used by AURA is
-supported by an experimentally grounded FEM chain.
+This anchor supports the statement:
 
-It is appropriate to call this:
+> The Breshev perturbation-method workflow used in AURA is supported by an
+> experimentally grounded FEM route for the documented conical aerostatic
+> bearing family.
 
-- a public scoped engineering-evidence anchor;
-- a Breshev conical gas-bearing method-chain record;
-- a first public BVC engineering-evidence milestone.
+## What this anchor does not support
 
-## What this does not validate
+It does **not** support the following claims:
 
-This anchor must not be used to claim:
+- Full universal validation of all gas-bearing configurations.
+- Full L5 Breshev Validation Chain completion.
+- Validation of cylindrical journal bearings.
+- Engineering-freeze-grade validation for arbitrary rotor-bearing systems.
+- Direct validation of every AURA module.
 
-- universal validation of all gas-bearing configurations;
-- full L5 BVC completion;
-- validation of cylindrical journal bearings;
-- validation of all AURA gas-bearing modules;
-- engineering-freeze approval for arbitrary rotor-dynamic designs.
+## Why this matters
 
-Those claims require additional anchors and, for full L5 status, a more
-complete chain through calibrated CFD, experiment, and rotor-dynamic
-implication.
+This anchor is the first public record connecting the BVC methodology to the
+specialized domain where AURA has its strongest intellectual foundation:
+aerostatic gas-bearing rotor systems. It is intentionally scoped. Its value is
+not that it proves everything; its value is that it proves one documented chain
+without overclaiming.
 
-## Forward work
+## Next engineering-evidence targets
 
-The next engineering-evidence work should add:
+Planned next records include:
 
-1. a second public conical aerostatic bearing anchor from the current
-   extraction package;
-2. a damping / K-C perturbation anchor;
-3. a calibrated CFD comparison anchor;
-4. an experimental spindle / rotor-dynamic implication chain.
-
-For the conceptual framework, see the
-[methodology overview](../methodology/index.md). For schema and tooling,
-see the [schema overview](../schema/index.md).
+- Conical bearing radial-load / clearance comparison.
+- Perturbation K/C anchor for dynamic coefficients.
+- CFD-vs-perturbation comparison.
+- Experimental spindle correlation.
+- Gas-bearing-to-rotor-dynamic chain validation.
