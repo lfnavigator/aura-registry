@@ -195,21 +195,20 @@ reproduction is information the engineering community needs but
 otherwise loses, because conventional validation literature does not
 publish failed reconstructions.
 
-**The Nelson-McVaugh case.** The AURA registry's Nelson-McVaugh (1976)
-benchmark reconstruction is preserved at Level D after ten diagnostic
-variants attempted across multiple interpretations of the published
-configuration. No variant reproduced the published values across all
-quantities without parameter tuning beyond what the original paper
-specifies. The forensic record documents all ten variants, their
-interpretation choices, and their observed residuals. The community
-gains diagnostic information; AURA gains the credibility associated
-with not hiding failures; the underlying question (why does the
-benchmark resist reproduction?) remains open for future investigation
-by anyone in the community.
+**The Nelson-McVaugh case.** The AURA validation work preserves the
+Nelson-McVaugh (1976) benchmark reconstruction as a Level D forensic
+case after ten diagnostic variants were attempted across multiple
+interpretations of the published configuration. No variant reproduced
+the published values across all quantities without parameter tuning
+beyond what the original paper specifies. The forensic record documents
+the variants, their interpretation choices, and their observed
+residuals. The community gains diagnostic information; AURA gains the
+credibility associated with not hiding failures; the underlying
+question (why the benchmark resists reproduction under the current
+reconstruction) remains open for future investigation.
 
-The blog post on this case (["Why we preserved a failed benchmark as
-a public record"](Nelson-McVaugh forensic record))
-discusses the methodological choice in detail.
+A public narrative note on this case is planned, but it is deliberately
+not linked here until the blog section is reviewed and published.
 
 **Why Level D exists as a first-class category.** Without Level D,
 validation work faces a binary outcome: clean validation or no entry.
@@ -284,5 +283,5 @@ policy version they were promoted under.
 - [Two-layer registry](two-layer-registry.md) — solver-sanity vs. engineering-evidence layers
 - [Triangulation](triangulation.md) — independent external evidence for engineering-evidence layer
 - [Schema v1.1 reference](../schema/v1-1.md) — implementation-level reference
-- [Blog post on the Nelson-McVaugh Level D case](OptiStruct OS-V:1010 Level C diagnostic record)
-- [Blog post on the OptiStruct Level C case](../blog/posts/2026-05-31-optistruct-osv1010-level-c.md)
+- Nelson-McVaugh Level D forensic case note — planned, not yet published
+- OptiStruct OS-V:1010 Level C diagnostic note — planned, not yet published
