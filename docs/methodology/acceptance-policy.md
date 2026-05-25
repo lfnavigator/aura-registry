@@ -208,7 +208,7 @@ benchmark resist reproduction?) remains open for future investigation
 by anyone in the community.
 
 The blog post on this case (["Why we preserved a failed benchmark as
-a public record"](../blog/posts/2026-05-24-nelson-mcvaugh-forensic.md))
+a public record"](Nelson-McVaugh forensic record))
 discusses the methodological choice in detail.
 
 **Why Level D exists as a first-class category.** Without Level D,
@@ -284,5 +284,5 @@ policy version they were promoted under.
 - [Two-layer registry](two-layer-registry.md) — solver-sanity vs. engineering-evidence layers
 - [Triangulation](triangulation.md) — independent external evidence for engineering-evidence layer
 - [Schema v1.1 reference](../schema/v1-1.md) — implementation-level reference
-- [Blog post on the Nelson-McVaugh Level D case](../blog/posts/2026-05-24-nelson-mcvaugh-forensic.md)
+- [Blog post on the Nelson-McVaugh Level D case](OptiStruct OS-V:1010 Level C diagnostic record)
 - [Blog post on the OptiStruct Level C case](../blog/posts/2026-05-31-optistruct-osv1010-level-c.md)
