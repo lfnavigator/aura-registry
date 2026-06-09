@@ -1,0 +1,214 @@
+{
+  "vcr_schema_version": "1.1",
+  "case_id": "VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001",
+  "title": "AURA journal aerostatic bearing L4 dual benchmark family holdout validation",
+  "description": "AURA's second public engineering-evidence anchor candidate. L4 dual benchmark family holdout validation across Kozánek aerostatic journal bearing family (within-family holdout, 2 rows) and Fleming/NASA externally pressurized gas-lubricated journal bearing family (second-source holdout, 2 rows). Combined L4 predicate PASS. Leakage audit PASS for both families. Target echo firewall ACTIVE.",
+  "created": "2026-06-06",
+  "version": "1.0",
+  "author": "A.V. Breshev",
+  "affiliation": "Breshev Engineering",
+  "lifecycle_state": "candidate",
+  "_lifecycle_state_note": "Candidate at commit-ready package stage. Promote to public_anchor only after registry commit plus review/verification period or external methodology-paper review.",
+  "validation_layer": "engineering_evidence",
+  "acceptance_level": "L4_internal_AURA",
+  "_acceptance_level_note": "L4 is the AURA internal validation-maturity criterion (per methodology paper Eq 30), NOT an external universal standard. Internal naming retained for honesty about claim scope.",
+  "bearing_class": "aerostatic_journal_and_externally_pressurized_gas_lubricated",
+  "physics_regime": "compressible_gas_film_Reynolds_equation_with_perturbation_method_K_C_extraction",
+  "data_type_label": "experiment_correlated",
+  "benchmark_families": [
+    {
+      "family_id": "kozanek_2009_aerostatic_journal",
+      "family_source": {
+        "citation": "Kozánek J, Šimek J, Steinbauer P, Bílkovský A. Identification of stiffness and damping coefficients of aerostatic journal bearing. Engineering Mechanics 2009;16(3):209-220",
+        "doi": "10.2478/v10048-009-0014-4",
+        "physical_setup": "Rotor Kit Bently Nevada superstructure at CTU Prague; piezo-actuator harmonic excitation in two orthogonal directions; bearings designed by Techlab Ltd Prague (type A center-row orifices, type B two-row quarter-position orifices); eight orifices evenly located per row"
+      },
+      "calibration_rows": [
+        {
+          "row_id": "kozanek_bearing2_selected_operating_point",
+          "evidence_object_id": "E-KOZ-SR-B2",
+          "quantities_used_for_calibration": [
+            "Kxx",
+            "Kyy",
+            "Cxx",
+            "Cyy"
+          ],
+          "residuals": {
+            "Kxx_pct": -0.021,
+            "Kyy_pct": 0.725,
+            "Cxx_pct": -0.021,
+            "Cyy_pct": 0.031
+          },
+          "max_abs_residual_pct": 0.725,
+          "role": "selected-row closure (calibration)",
+          "gate_status": "PASS"
+        }
+      ],
+      "holdout_rows": [
+        {
+          "row_id": "bearing1_table2_row_3",
+          "evidence_object_id": "E-KOZ-H1",
+          "split_status": "holdout",
+          "residuals": {
+            "Kxx_pct": -4.484,
+            "Kyy_pct": -0.625,
+            "Cxx_pct": 8.652,
+            "Cyy_pct": 6.708
+          },
+          "max_abs_residual_pct": 8.652,
+          "gate_status": "PASS",
+          "leakage_audit": "PASS",
+          "downstream_use": "bearing-level K/C evidence object"
+        },
+        {
+          "row_id": "bearing2_table3_row_5",
+          "evidence_object_id": "E-KOZ-H2",
+          "split_status": "holdout",
+          "residuals": {
+            "Kxx_pct": -4.526,
+            "Kyy_pct": -1.224,
+            "Cxx_pct": 10.282,
+            "Cyy_pct": -5.934
+          },
+          "max_abs_residual_pct": 10.282,
+          "gate_status": "PASS",
+          "leakage_audit": "PASS",
+          "downstream_use": "damping uncertainty evidence object"
+        }
+      ],
+      "family_summary": {
+        "n_holdout_rows": 2,
+        "n_closed_rows": 2,
+        "family_max_abs_residual_pct": 10.282,
+        "family_mean_abs_residual_pct": 5.304,
+        "family_leakage_audit": "PASS"
+      }
+    },
+    {
+      "family_id": "fleming_NASA_TN_D8270_externally_pressurized_gas_lubricated",
+      "family_source": {
+        "citation": "Fleming DP, Thayer WJ, Cunningham RE. Experimental dynamic stiffness and damping of externally pressurized gas-lubricated journal bearings. NASA TN D-8270; 1976",
+        "physical_setup": "NASA Lewis Research Center experimental rig for externally pressurized gas-lubricated journal bearings; foundational dataset for dynamic stiffness and damping identification",
+        "independence_from_kozanek": "Fully independent — different experimental facility, different country, different decade, different bearing design class. Confirmed by review of both sources."
+      },
+      "calibration_rows": [],
+      "_calibration_rows_note": "Fleming/NASA family used purely as second-source holdout — no rows used for calibration",
+      "holdout_rows": [
+        {
+          "row_id": "fleming_tableIV_row_3",
+          "evidence_object_id": "E-NASA-H3",
+          "split_status": "holdout",
+          "residuals": {
+            "K_pct": 2.749,
+            "B_omega_pct": 0.803,
+            "critical_speed_pct": 0.694
+          },
+          "max_abs_residual_pct": 2.749,
+          "gate_status": "PASS",
+          "leakage_audit": "PASS",
+          "downstream_use": "second-source response evidence object"
+        },
+        {
+          "row_id": "fleming_tableIV_row_9",
+          "evidence_object_id": "E-NASA-H9",
+          "split_status": "holdout",
+          "residuals": {
+            "K_pct": 3.68,
+            "B_omega_pct": 0.774,
+            "critical_speed_pct": 1.608
+          },
+          "max_abs_residual_pct": 3.68,
+          "gate_status": "PASS",
+          "leakage_audit": "PASS",
+          "downstream_use": "second-source response evidence object"
+        }
+      ],
+      "family_summary": {
+        "n_holdout_rows": 2,
+        "n_closed_rows": 2,
+        "family_max_abs_residual_pct": 3.68,
+        "family_mean_abs_residual_pct": 1.718,
+        "family_leakage_audit": "PASS"
+      }
+    }
+  ],
+  "combined_L4_predicate": {
+    "predicate_definition": "L4 = PASS ⇔ H_Kozanek = PASS ∧ H_NASA = PASS ∧ N_hold_closed ≥ 4 ∧ L = PASS (per methodology paper Eq 30)",
+    "H_Kozanek_PASS": true,
+    "H_NASA_PASS": true,
+    "N_hold_closed": 4,
+    "N_hold_required": 4,
+    "L_leakage_audit_PASS": true,
+    "target_echo_FALSE": true,
+    "verdict": "PASS",
+    "combined_max_abs_residual_pct": 10.282,
+    "combined_mean_abs_residual_pct": 3.767,
+    "_combined_mean_aggregation": "Mean across all reported holdout residual entries from Kozánek (Kxx, Kyy, Cxx, Cyy for 2 rows = 8 entries) and Fleming/NASA (K, B(ω), critical_speed for 2 rows = 6 entries), total 14 residual entries"
+  },
+  "target_echo_firewall": {
+    "mechanism": "Calibration row IDs and holdout row IDs strictly disjoint per Eq (24). Holdout target values y*_hold excluded from β̂ fitting per Eq (26). Leakage audit predicate L per Eq (27): L = PASS ⇔ (IDs_train ∩ IDs_hold = ∅) ∧ (TargetEcho = FALSE).",
+    "implementation_status": "ACTIVE and PASS for this case",
+    "novel_contribution": "Target-echo firewall as explicit workflow operator is identified as a novel contribution of the methodology paper. Citation hook for external use of the framework."
+  },
+  "methodology_paper_reference": {
+    "title": "Инженерная платформа AURA: evidence-gated workflow валидации и воспроизводимая поддержка инженерных решений для роторных систем на аэростатических опорах",
+    "authors": "А. В. Брешев; В. Е. Брешев",
+    "status": "in preparation for external review and submission",
+    "language": "Russian (working language); English version planned for external submission",
+    "target_journals": [
+      "Tribology International (primary)",
+      "Lubricants MDPI (secondary)",
+      "Mechanism and Machine Theory (tertiary)"
+    ]
+  },
+  "applicability_assessment": {
+    "applicable_scope": [
+      "Aerostatic journal bearing configurations within Kozánek family scope (eight-orifice type-A center-row or type-B two-row quarter-position designs at operating conditions documented in Kozánek 2009)",
+      "Externally pressurized gas-lubricated journal bearing configurations within Fleming/NASA TN D-8270 scope"
+    ],
+    "non_applicable_scope": [
+      "Conical aerostatic bearings (see VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001 for separate validation)",
+      "Aerostatic thrust bearings (no validated case yet)",
+      "Porous aerostatic bearings (no validated case yet)",
+      "Foil bearings (different physics regime)",
+      "Hybrid hydrostatic-aerostatic bearings (no validated case yet)",
+      "Magnetic bearings (different physics regime entirely)"
+    ],
+    "scope_expansion_path": "Per methodology paper §11 + Eq (31): S_expansion = S_production \\ S_validated. Future work includes (a) third or fourth independent benchmark family, (b) full two-way Reynolds perturbation solver, (c) AURA-controlled experimental test cases for in-house validation."
+  },
+  "lifecycle_log": [
+    {
+      "timestamp": "2026-06-06T00:00:00Z",
+      "event": "case_created",
+      "actor": "A.V. Breshev",
+      "rationale": "Initial commit of L4 dual benchmark family validation evidence supporting article v15 methodology paper claims. Second public engineering-evidence anchor in the AURA registry, parallel to VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001 for the conical aerostatic case."
+    }
+  ],
+  "hash_sha256": "33dbe84628a0602a0850d945c23ee2581145e57e608a6122f350b9b96a0cb484",
+  "_hash_note": "Detached/self-reference-safe hash computed over canonical JSON excluding hash fields listed in _hash_policy.",
+  "related_cards": [
+    "BCARD-002",
+    "VCARD-002"
+  ],
+  "limitations_and_what_this_anchor_does_not_claim": [
+    "L4 is the AURA internal validation-maturity criterion, NOT a formal external universal standard such as ASME V&V or ISO compliance",
+    "Holdout split done by row IDs — physical similarity between training and holdout configurations within the same family is reduced but not eliminated",
+    "Leakage audit checks ID disjointness and target echo absence — does NOT exhaustively check for indirect leakage through model structure or hyperparameter selection",
+    "Damping residuals up to 10.282% reflect physical sensitivity of damping coefficient identification to perturbation amplitude, excitation frequency, phase interpretation, gas compressibility, and numerical differentiation. Documented expected behavior per methodology paper §6.",
+    "Decision verdict 'L4 PASS' supports benchmark-scope engineering freeze for the documented benchmark families ONLY",
+    "Decision verdict does NOT support arbitrary-geometry production release — S_expansion remains non-empty per Eq (31)",
+    "Current scope is one-way support → rotor handoff; full two-way Reynolds perturbation coupling is future work per methodology paper §11",
+    "External independent third-party verification of the AURA implementation has NOT been performed",
+    "Residual values shown here do NOT transfer to bearing geometries materially outside the documented benchmark families"
+  ],
+  "citation_for_external_use": "AURA Validation Chain Registry. VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001. Breshev Engineering, 2026. Available at https://github.com/lfnavigator/aura-registry/cases/public/VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001",
+  "_hash_policy": "sha256 over canonical JSON with hash_sha256, _hash_note, _hash_policy, hash_computed_at and hash_source_file excluded; see scripts/compute_registry_hash.py.",
+  "hash_source_file": "entry.json",
+  "hash_computed_at": "2026-06-06T00:00:00Z",
+  "commit_ready_status": {
+    "status": "READY_FOR_REGISTRY_COMMIT_CANDIDATE",
+    "public_claim_wording": "second public engineering-evidence anchor candidate until promoted",
+    "promotion_rule": "Promote lifecycle_state to public_anchor only after registry commit and either external review or 14-day verification period without issue.",
+    "claim_boundary": "Benchmark-scope engineering freeze for documented benchmark families; not arbitrary-geometry production damping release."
+  }
+}
