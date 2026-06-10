@@ -5,7 +5,7 @@
 
 **An open registry of validated reference cases for aerostatic gas-bearing rotor systems, built on the Breshev Validation Chain (BVC) methodology.**
 
-Maintained by Breshev Engineering. Co-authored by V.E. Breshev (methodology) and A.V. Breshev (platform). Part of the AURA Engineering Platform (currently AURA v0.3.0-alpha).
+Maintained by Breshev Engineering. Co-authored by V. Breshev (methodology) and O. Breshev (platform). Part of the AURA Engineering Platform (currently AURA v0.3.0-alpha).
 
 **Status:** Initial public registry scaffold. Schemas are authoritative; public anchor cases are being curated.
 
@@ -154,7 +154,7 @@ This repository uses **two licenses**, applied per directory:
 
 The attribution requirement for CC-BY-4.0 content is:
 
-> *A.V. Breshev, V.E. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry*
+> *O. Breshev, V. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry*
 
 Cases in `cases/internal/` (if present) are proprietary and not published.
 
@@ -164,7 +164,7 @@ Cases in `cases/internal/` (if present) are proprietary and not published.
 
 If you use the BVC methodology, schemas, or any anchor case from this registry in academic publications, please cite:
 
-> Breshev, V.E., & Breshev, A.V. (2026). *Breshev Validation Chain Methodology for Aerostatic Gas-Bearing Rotor Design*. AURA Engineering Platform / Breshev Engineering. https://github.com/lfnavigator/aura-registry
+> Breshev, V., & Breshev, O. (2026). *Breshev Validation Chain Methodology for Aerostatic Gas-Bearing Rotor Design*. AURA Engineering Platform / Breshev Engineering. https://github.com/lfnavigator/aura-registry
 
 For version-specific citation, cite the repository release tag or archived DOI when available.
 
@@ -224,7 +224,7 @@ saved → reviewed → validated_anchor → benchmark_anchor
                                   ↘ rejected
 ```
 
-Each transition is manual, requires reviewer attribution (`role`, `verdict`, `dateIso`), and is recorded in the entry's `lifecycleHistory`. The methodology authority for this registry is V.E. Breshev. Quality review of public artifacts is performed before promotion to `validated_anchor`.
+Each transition is manual, requires reviewer attribution (`role`, `verdict`, `dateIso`), and is recorded in the entry's `lifecycleHistory`. The methodology authority for this registry is V. Breshev. Quality review of public artifacts is performed before promotion to `validated_anchor`.
 
 External contributions are welcome via two paths:
 
@@ -293,8 +293,8 @@ Methodology:            Breshev Validation Chain (BVC)
 Registry:               AURA / BVC Validation Chain Registry
 Schema license:         MIT
 Public case license:    CC-BY-4.0
-Founder:                A.V. Breshev (operational lead)
-Methodology co-author:  V.E. Breshev (expert reviewer)
+Founder:                O. Breshev (operational lead)
+Methodology co-author:  V. Breshev (expert reviewer)
 ```
 
 ---
