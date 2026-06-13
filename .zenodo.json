@@ -1,0 +1,24 @@
+{
+  "title": "AURA Validation Chain Registry: Public Engineering-Evidence Anchors for Aerostatic Gas-Bearing Rotor Systems",
+  "creators": [
+    {
+      "name": "Breshev, Oleksii",
+      "affiliation": "Breshev Engineering"
+    }
+  ],
+  "description": "The AURA Validation Chain Registry is a public evidence registry for aerostatic and gas-static bearing rotor systems. It contains machine-readable validation entries, public engineering-evidence anchors, residual-level comparison data, lifecycle states, applicability boundaries, and schema documentation used by the AURA Engineering Platform. This initial public release includes two engineering-evidence anchors: VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001 and VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001. This release is benchmark-scope engineering evidence and is not an arbitrary-geometry production validation claim.",
+  "keywords": [
+    "aerostatic bearings",
+    "gas bearings",
+    "rotor dynamics",
+    "validation registry",
+    "engineering evidence",
+    "stiffness coefficients",
+    "damping coefficients",
+    "benchmark validation",
+    "residuals",
+    "AURA Engineering Platform"
+  ],
+  "license": "cc-by-4.0",
+  "upload_type": "dataset"
+}
