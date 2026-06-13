@@ -71,7 +71,7 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "Full name in 'X.Y. Surname' format. Example: 'A.V. Breshev'."
+          "description": "Full name in 'X.Y. Surname' format. Example: 'O. Breshev'."
         },
         "role": {
           "type": "string",
@@ -805,7 +805,7 @@
           "properties": {
             "name": {
               "type": "string",
-              "description": "Format: 'X.Y. Surname'. Example: 'V.E. Breshev'."
+              "description": "Format: 'X.Y. Surname'. Example: 'V. Breshev'."
             },
             "role": {
               "type": "string",
@@ -873,7 +873,7 @@
         },
         "attribution": {
           "type": "string",
-          "description": "Required for CC-BY-4.0. Standard: 'A.V. Breshev, V.E. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry'."
+          "description": "Required for CC-BY-4.0. Standard: 'O. Breshev, V. Breshev, AURA Engineering Platform / Breshev Validation Chain Registry'."
         },
         "public_release": {
           "type": "boolean"

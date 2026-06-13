@@ -12,4 +12,4 @@ Primary-source locator still to add for top-tier publication:
 
 - exact dissertation section/table/figure for the real-machine/FEM validation basis;
 - exact Excel/table locator for the FEM-vs-experiment P05 row if available;
-- V.E. Breshev final expert signoff.
+- V. Breshev final expert signoff.

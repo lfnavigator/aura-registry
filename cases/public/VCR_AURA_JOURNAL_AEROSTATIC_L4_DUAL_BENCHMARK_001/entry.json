@@ -5,7 +5,7 @@
   "description": "AURA's second public engineering-evidence anchor candidate. L4 dual benchmark family holdout validation across Kozánek aerostatic journal bearing family (within-family holdout, 2 rows) and Fleming/NASA externally pressurized gas-lubricated journal bearing family (second-source holdout, 2 rows). Combined L4 predicate PASS. Leakage audit PASS for both families. Target echo firewall ACTIVE.",
   "created": "2026-06-06",
   "version": "1.0",
-  "author": "A.V. Breshev",
+  "author": "O. Breshev",
   "affiliation": "Breshev Engineering",
   "lifecycle_state": "candidate",
   "_lifecycle_state_note": "Candidate at commit-ready package stage. Promote to public_anchor only after registry commit plus review/verification period or external methodology-paper review.",
@@ -180,7 +180,7 @@
     {
       "timestamp": "2026-06-06T00:00:00Z",
       "event": "case_created",
-      "actor": "A.V. Breshev",
+      "actor": "O. Breshev",
       "rationale": "Initial commit of L4 dual benchmark family validation evidence supporting article v15 methodology paper claims. Second public engineering-evidence anchor in the AURA registry, parallel to VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001 for the conical aerostatic case."
     }
   ],

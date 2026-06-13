@@ -4,7 +4,7 @@ This document specifies how the AURA Registry schemas and registry entries are v
 
 **Applies to:** all schemas in `schemas/` of this repository.
 **Status:** v1 policy, effective from initial public release.
-**Maintainer:** Breshev Engineering (A.V. Breshev, with V.E. Breshev methodology review).
+**Maintainer:** Breshev Engineering (O. Breshev, with V. Breshev methodology review).
 
 ---
 
@@ -138,7 +138,7 @@ The methodology version is currently `BVC_v1`. The first formalization is being 
 Each schema version bump follows this process:
 
 1. **Draft proposal** in a GitHub issue, describing the change and rationale.
-2. **Review** by V.E. Breshev (methodology) and A.V. Breshev (platform). External feedback welcomed via the issue.
+2. **Review** by V. Breshev (methodology) and O. Breshev (platform). External feedback welcomed via the issue.
 3. **Implementation** in a feature branch, with updated schema, validation tests, and migration tooling (if breaking).
 4. **Pull request** with the changeset, including:
    - Updated schema files at new version path

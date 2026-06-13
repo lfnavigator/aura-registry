@@ -2,11 +2,11 @@
 
 ## Current maintainers
 
-**A.V. Breshev** — CEO/CTO, AURA platform architect and lead developer.
+**O. Breshev** — CEO/CTO, AURA platform architect and lead developer.
 PhD candidate. Author of peer-reviewed work across tribology, rotor
 dynamics, and aerostatic bearing analysis.
 
-**V.E. Breshev** — Chief scientist. PhD aerostatic bearing dynamics.
+**V. Breshev** — Chief scientist. PhD aerostatic bearing dynamics.
 Original perturbation method derivations for conical aerostatic bearings.
 Patents in aerostatic bearing design.
 
