@@ -30,38 +30,41 @@ The registry implements the **Breshev Validation Chain (BVC)** methodology:
   registry entries, enabling third-party re-validation without access to
   private systems.
 
-The methodology paper is **in preparation for external review and
-submission**. The registry is active and already contains its first public
-scoped Breshev gas-bearing method-chain anchor.
+The methodology paper is **in preparation for external review and submission**.
+The registry is active and currently contains two public engineering-evidence
+anchors in `cases/public/`.
 
 ---
 
-## Current state — May 2026
+## Current state — June 2026
 
 !!! success "Registry status snapshot"
-    The registry now contains a first public scoped engineering-evidence
-    anchor for the Breshev conical aerostatic bearing method chain:
-    `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`.
+    The registry currently contains two public engineering-evidence anchors
+    in `cases/public/`. These records expose residual-level validation
+    evidence, lifecycle state, provenance, and applicability boundaries.
 
-| Layer | Current state | Public status |
+| Anchor | Scope | Current public status |
 |---|---|---|
-| Solver-sanity | 10 analytical rotor-dynamic anchors in the active regression track | Level A foundation |
-| Engineering-evidence | 1 public scoped Breshev gas-bearing method-chain anchor | Public scoped anchor |
-| Diagnostic (Level C) | OS-V:1010 external diagnostic comparison | Diagnostic only, not public benchmark |
-| Forensic (Level D) | Nelson-McVaugh reconstruction record | Forensic/internal, not active evidence |
+| `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001` | Conical aerostatic bearing method-chain validation | Public engineering-evidence anchor |
+| `VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001` | Aerostatic journal bearing dynamic coefficient holdout validation | Public engineering-evidence anchor |
 
-What this means in practice:
+Reported evidence:
 
-- The solver-sanity layer exercises specific solver capabilities against
-  closed-form mathematical references. These anchors form the mathematical
-  verification foundation under AURA's dynamic workflow.
-- The engineering-evidence layer now includes a first public scoped
-  gas-bearing anchor: a Breshev conical aerostatic bearing method-chain case
-  linking industrial spindle evidence, experimentally validated FEM results,
-  and the Breshev perturbation method used in AURA.
-- Diagnostic and forensic records are deliberately preserved when they are
-  useful for methodology development, but they are not promoted into
-  engineering-grade evidence unless their provenance supports that promotion.
+- The conical case reports method-chain residuals of **3.938% / 7.143% / 7.692%**.
+- The journal case reports **4/4 holdout rows closed** across the Kozánek 2009
+  and Fleming/NASA TN D-8270 benchmark families, with **maximum absolute
+  residual 10.282%**, **mean absolute residual 3.767%**, and **leakage audit PASS**.
+- The solver-sanity layer contains **10 Level A solver-sanity checks** used as
+  the mathematical implementation foundation under the AURA dynamic workflow.
+
+These records are **benchmark-scope engineering-evidence anchors**. They are
+not arbitrary-geometry production validation claims and do not replace final
+high-fidelity CAE or experimental qualification.
+
+Diagnostic and forensic records may be retained internally or documented
+separately when useful for methodology development. They are not part of the
+v0.1.0 public engineering-evidence release unless explicitly listed in
+`cases/public/`.
 
 For the full registry status, see [Registry overview](registry/index.md).
 
@@ -96,3 +99,4 @@ where future work is required.
 **Engineering decisions, not just solver outputs.** The long-term purpose of
 the registry is to support trust verdicts that are appropriate to the
 consequences of engineering decisions.
+

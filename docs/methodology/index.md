@@ -23,7 +23,7 @@ Modern rotor-dynamic computational engineering is mature in arithmetic but
 uneven in validation discipline. A typical published study reports
 results computed by a specific code with agreement against one or two
 famous benchmarks asserted in a sentence. The reader is asked to
-extrapolate from "this code reproduced Nelson-McVaugh within 2%" to
+extrapolate from "this code reproduced a historical rotor-dynamic benchmark within 2%" to
 "this code can be trusted on my own engineering case."
 
 The extrapolation is precarious. Reproducing a single benchmark — when it
@@ -137,8 +137,8 @@ or where residuals fall in the 2–6% range. These records are accepted as
 **diagnostic information** — useful for engineering screening — but are
 **not promoted to public-anchor status**.
 
-Example: the OptiStruct OS-V:1010 1D beam-matrix deck comparison falls
-here. The 2.21% residual on six whirl modes is engineering-meaningful but
+Example: the a commercial-CAE solver a commercial-CAE diagnostic deck 1D beam-matrix deck comparison falls
+here. The a low-single-digit residual on six whirl modes is engineering-meaningful but
 not source-equivalent (different solver architectures), so the record is
 preserved at Level C without claiming Level B promotion.
 
@@ -149,7 +149,7 @@ reproduce a reference within any reasonable acceptance threshold, and the
 reasons cannot be fully diagnosed, the attempt is preserved as a forensic
 record with all diagnostic variants documented.
 
-The canonical example is the Nelson-McVaugh (1976) reconstruction
+The canonical example is the a historical rotor-dynamic benchmark (1976) reconstruction
 attempt: ten diagnostic variants were attempted, none reproduced the
 published values without parameter overfit. All ten variants are
 preserved openly. The information the engineering community otherwise

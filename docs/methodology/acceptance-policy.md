@@ -151,14 +151,14 @@ verification contexts.
 **Critical distinction.** A Level C record is **deliberately not
 promoted** to Level B. The methodology's discipline is that the
 evidence level matches what the comparison actually certifies. A
-comparison against another commercial code at 2.21% residual is
+comparison against another commercial code at a low-single-digit residual is
 engineering-screening-useful but is **not** independent verification
 in the BVC sense. Treating it as Level B would conflate the two
 categories in exactly the way most CAE validation literature conflates
 them.
 
-**Example.** The AURA registry preserves the Altair OptiStruct OS-V:1010
-1D beam-matrix verification deck comparison at Level C with 2.21%
+**Example.** The AURA registry preserves the Altair a commercial-CAE solver a commercial-CAE diagnostic deck
+1D beam-matrix verification deck comparison at Level C with a low-single-digit
 residual on six whirl modes. The comparison is engineering-meaningful
 — it tells us AURA's rotor-dynamic core produces results in the right
 ballpark for this problem class. But three structural properties
@@ -195,8 +195,8 @@ reproduction is information the engineering community needs but
 otherwise loses, because conventional validation literature does not
 publish failed reconstructions.
 
-**The Nelson-McVaugh case.** The AURA validation work preserves the
-Nelson-McVaugh (1976) benchmark reconstruction as a Level D forensic
+**The a historical rotor-dynamic benchmark case.** The AURA validation work preserves the
+a historical rotor-dynamic benchmark (1976) benchmark reconstruction as a Level D forensic
 case after ten diagnostic variants were attempted across multiple
 interpretations of the published configuration. No variant reproduced
 the published values across all quantities without parameter tuning
@@ -283,5 +283,5 @@ policy version they were promoted under.
 - [Two-layer registry](two-layer-registry.md) — solver-sanity vs. engineering-evidence layers
 - [Triangulation](triangulation.md) — independent external evidence for engineering-evidence layer
 - [Schema v1.1 reference](../schema/v1-1.md) — implementation-level reference
-- Nelson-McVaugh Level D forensic case note — planned, not yet published
-- OptiStruct OS-V:1010 Level C diagnostic note — planned, not yet published
+- a historical rotor-dynamic benchmark Level D forensic case note — planned, not yet published
+- a commercial-CAE solver a commercial-CAE diagnostic deck Level C diagnostic note — planned, not yet published

@@ -1439,10 +1439,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#layers" class="md-nav__link">
+  <a href="#current-public-engineering-evidence-anchors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layers
+        Current public engineering-evidence anchors
       
     </span>
   </a>
@@ -1450,10 +1450,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-public-engineering-evidence-anchor" class="md-nav__link">
+  <a href="#reported-evidence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current public engineering-evidence anchor
+        Reported evidence
       
     </span>
   </a>
@@ -1461,10 +1461,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#by-acceptance-level" class="md-nav__link">
+  <a href="#scope-statement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        By acceptance level
+        Scope statement
       
     </span>
   </a>
@@ -1509,40 +1509,55 @@
 
 <h1 id="registry-overview">Registry Overview<a class="headerlink" href="#registry-overview" title="Anchor link to this section">¶</a></h1>
 <p>The AURA Validation Chain Registry is organized by validation layer and
-acceptance level. For the conceptual framework see the
+acceptance level. For the conceptual framework, see the
 <a href="../methodology/">methodology overview</a>.</p>
-<h2 id="layers">Layers<a class="headerlink" href="#layers" title="Anchor link to this section">¶</a></h2>
+<h2 id="current-public-engineering-evidence-anchors">Current public engineering-evidence anchors<a class="headerlink" href="#current-public-engineering-evidence-anchors" title="Anchor link to this section">¶</a></h2>
+<p>The v0.1.0 public registry release contains two public engineering-evidence
+anchors in <code>cases/public/</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th>Scope</th>
+<th>Public status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001</code></td>
+<td>Conical aerostatic bearing method-chain validation</td>
+<td>Public engineering-evidence anchor</td>
+</tr>
+<tr>
+<td><code>VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001</code></td>
+<td>Aerostatic journal bearing dynamic coefficient holdout validation</td>
+<td>Public engineering-evidence anchor</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reported-evidence">Reported evidence<a class="headerlink" href="#reported-evidence" title="Anchor link to this section">¶</a></h2>
 <ul>
-<li><a href="solver-sanity/">Solver-sanity layer</a> — analytical anchors against
-  closed-form mathematical references.</li>
-<li><a href="engineering-evidence/">Engineering-evidence layer</a> — multi-step
-  chains terminating in measured or experimentally grounded physical data.</li>
+<li><strong>Conical case:</strong> method-chain residuals <strong>3.938% / 7.143% / 7.692%</strong>.</li>
+<li><strong>Journal case:</strong> <strong>4/4 holdout rows closed</strong> across Kozánek 2009 and
+  Fleming/NASA TN D-8270 benchmark families; maximum absolute residual
+  <strong>10.282%</strong>; mean absolute residual <strong>3.767%</strong>; leakage audit <strong>PASS</strong>.</li>
+<li><strong>Solver-sanity layer:</strong> 10 Level A solver-sanity checks used as
+  mathematical implementation checks under the AURA dynamic workflow.</li>
 </ul>
-<h2 id="current-public-engineering-evidence-anchor">Current public engineering-evidence anchor<a class="headerlink" href="#current-public-engineering-evidence-anchor" title="Anchor link to this section">¶</a></h2>
-<p>The first public scoped Breshev gas-bearing method-chain anchor is now
-available:</p>
-<p><a href="https://github.com/lfnavigator/aura-registry/tree/main/cases/public/VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001"><code>VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001</code></a></p>
-<p>It links industrial spindle evidence, experimentally validated FEM results,
-and the Breshev perturbation method used in AURA. It is public and scoped;
-it is not a universal validation claim.</p>
-<h2 id="by-acceptance-level">By acceptance level<a class="headerlink" href="#by-acceptance-level" title="Anchor link to this section">¶</a></h2>
-<ul>
-<li>Level A · analytical sanity.</li>
-<li>Level B · public external benchmark.</li>
-<li><a href="diagnostic/">Level C diagnostic records</a>.</li>
-<li><a href="forensic/">Level D forensic records</a>.</li>
-</ul>
+<h2 id="scope-statement">Scope statement<a class="headerlink" href="#scope-statement" title="Anchor link to this section">¶</a></h2>
+<p>These records are benchmark-scope engineering-evidence anchors. They are not
+arbitrary-geometry production validation claims and do not replace final
+high-fidelity CAE or experimental qualification.</p>
+<p>Diagnostic and forensic records may be retained internally or documented
+separately when useful for methodology development. They are not part of the
+v0.1.0 public engineering-evidence release unless explicitly listed in
+<code>cases/public/</code>.</p>
 <h2 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Anchor link to this section">¶</a></h2>
-<p>Each registry entry passes through declared
-<a href="lifecycle/">lifecycle states</a> from initial draft through promotion
-candidate to validated public anchor or to diagnostic / forensic
-preservation.</p>
-<div class="admonition note">
-<p class="admonition-title">Detailed registry pages under development</p>
-<p>Per-anchor detail pages and machine-readable index are being prepared.
-For current anchor JSON entries see the
-<a href="https://github.com/lfnavigator/aura-registry">registry repository</a>.</p>
-</div>
+<p>Each registry entry passes through declared lifecycle states from initial draft
+through promotion candidate to validated public anchor or to diagnostic /
+forensic preservation.</p>
+<p>Detailed per-anchor pages and a machine-readable registry index are being
+prepared. For current anchor JSON entries, see the registry repository.</p>
 
 
 

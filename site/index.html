@@ -478,10 +478,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-state-may-2026" class="md-nav__link">
+  <a href="#current-state-june-2026" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current state — May 2026
+        Current state — June 2026
       
     </span>
   </a>
@@ -1536,10 +1536,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-state-may-2026" class="md-nav__link">
+  <a href="#current-state-june-2026" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current state — May 2026
+        Current state — June 2026
       
     </span>
   </a>
@@ -1619,61 +1619,54 @@ high-reliability rotating machinery).</p>
   registry entries, enabling third-party re-validation without access to
   private systems.</li>
 </ul>
-<p>The methodology paper is <strong>in preparation for external review and
-submission</strong>. The registry is active and already contains its first public
-scoped Breshev gas-bearing method-chain anchor.</p>
+<p>The methodology paper is <strong>in preparation for external review and submission</strong>.
+The registry is active and currently contains two public engineering-evidence
+anchors in <code>cases/public/</code>.</p>
 <hr />
-<h2 id="current-state-may-2026">Current state — May 2026<a class="headerlink" href="#current-state-may-2026" title="Anchor link to this section">¶</a></h2>
+<h2 id="current-state-june-2026">Current state — June 2026<a class="headerlink" href="#current-state-june-2026" title="Anchor link to this section">¶</a></h2>
 <div class="admonition success">
 <p class="admonition-title">Registry status snapshot</p>
-<p>The registry now contains a first public scoped engineering-evidence
-anchor for the Breshev conical aerostatic bearing method chain:
-<code>VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001</code>.</p>
+<p>The registry currently contains two public engineering-evidence anchors
+in <code>cases/public/</code>. These records expose residual-level validation
+evidence, lifecycle state, provenance, and applicability boundaries.</p>
 </div>
 <table>
 <thead>
 <tr>
-<th>Layer</th>
-<th>Current state</th>
-<th>Public status</th>
+<th>Anchor</th>
+<th>Scope</th>
+<th>Current public status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Solver-sanity</td>
-<td>10 analytical rotor-dynamic anchors in the active regression track</td>
-<td>Level A foundation</td>
+<td><code>VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001</code></td>
+<td>Conical aerostatic bearing method-chain validation</td>
+<td>Public engineering-evidence anchor</td>
 </tr>
 <tr>
-<td>Engineering-evidence</td>
-<td>1 public scoped Breshev gas-bearing method-chain anchor</td>
-<td>Public scoped anchor</td>
-</tr>
-<tr>
-<td>Diagnostic (Level C)</td>
-<td>OS-V:1010 external diagnostic comparison</td>
-<td>Diagnostic only, not public benchmark</td>
-</tr>
-<tr>
-<td>Forensic (Level D)</td>
-<td>Nelson-McVaugh reconstruction record</td>
-<td>Forensic/internal, not active evidence</td>
+<td><code>VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001</code></td>
+<td>Aerostatic journal bearing dynamic coefficient holdout validation</td>
+<td>Public engineering-evidence anchor</td>
 </tr>
 </tbody>
 </table>
-<p>What this means in practice:</p>
+<p>Reported evidence:</p>
 <ul>
-<li>The solver-sanity layer exercises specific solver capabilities against
-  closed-form mathematical references. These anchors form the mathematical
-  verification foundation under AURA's dynamic workflow.</li>
-<li>The engineering-evidence layer now includes a first public scoped
-  gas-bearing anchor: a Breshev conical aerostatic bearing method-chain case
-  linking industrial spindle evidence, experimentally validated FEM results,
-  and the Breshev perturbation method used in AURA.</li>
-<li>Diagnostic and forensic records are deliberately preserved when they are
-  useful for methodology development, but they are not promoted into
-  engineering-grade evidence unless their provenance supports that promotion.</li>
+<li>The conical case reports method-chain residuals of <strong>3.938% / 7.143% / 7.692%</strong>.</li>
+<li>The journal case reports <strong>4/4 holdout rows closed</strong> across the Kozánek 2009
+  and Fleming/NASA TN D-8270 benchmark families, with <strong>maximum absolute
+  residual 10.282%</strong>, <strong>mean absolute residual 3.767%</strong>, and <strong>leakage audit PASS</strong>.</li>
+<li>The solver-sanity layer contains <strong>10 Level A solver-sanity checks</strong> used as
+  the mathematical implementation foundation under the AURA dynamic workflow.</li>
 </ul>
+<p>These records are <strong>benchmark-scope engineering-evidence anchors</strong>. They are
+not arbitrary-geometry production validation claims and do not replace final
+high-fidelity CAE or experimental qualification.</p>
+<p>Diagnostic and forensic records may be retained internally or documented
+separately when useful for methodology development. They are not part of the
+v0.1.0 public engineering-evidence release unless explicitly listed in
+<code>cases/public/</code>.</p>
 <p>For the full registry status, see <a href="registry/">Registry overview</a>.</p>
 <hr />
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Anchor link to this section">¶</a></h2>

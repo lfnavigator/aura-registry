@@ -25,36 +25,26 @@ mkdocs gh-deploy
 aura_docs/
 ├── mkdocs.yml                 # site config, nav, theme, brand colors
 └── docs/
-    ├── index.md               # home (substantive)
+    ├── index.md               # home
     ├── methodology/
-    │   ├── index.md           # BVC framework overview (substantive)
-    │   ├── two-layer-registry.md  # stub
-    │   ├── acceptance-policy.md   # stub
-    │   ├── triangulation.md       # stub
-    │   └── two-gate-model.md      # stub
-    ├── registry/              # all stubs
-    ├── schema/                # all stubs
+    ├── registry/
+    ├── schema/
     ├── contributing/
-    │   ├── index.md           # contributing overview (substantive-stub)
-    │   ├── anchors.md         # anchor submission guide (substantive)
-    │   ├── triangulations.md  # stub
-    │   ├── code-of-conduct.md # stub
-    │   └── licensing.md       # stub
-    ├── about/                 # team / citation / roadmap (substantive-stub)
+    ├── about/
     └── stylesheets/
-        └── aura.css           # brand color overlay (#081C2F navy)
 ```
 
 ## Substantive vs stub
 
-Four pages are substantive in v1.1:
-- **Home** (`index.md`) — claim-evidence-disciplined positioning, current registry state
+Core substantive pages in v0.1.0:
+
+- **Home** (`index.md`) — claim-evidence-disciplined positioning and current registry state
 - **Methodology overview** (`methodology/index.md`) — BVC framework treatment
-- **Engineering-evidence layer** (`registry/engineering-evidence.md`) — first Breshev conical method-chain anchor
+- **Engineering-evidence layer** (`registry/engineering-evidence.md`) — current public engineering-evidence anchors
 - **Anchor submission guide** (`contributing/anchors.md`) — practical contributor walkthrough
 
-The remaining pages are intentional stubs with "section under development" admonitions.
-Fill these in as the registry implementation is consolidated.
+The remaining pages may still contain section-under-development notices. Fill
+these in as the registry implementation is consolidated.
 
 ## Brand
 
@@ -77,15 +67,17 @@ These match the AURA landing page so visitors moving between
 ## Claim-evidence discipline
 
 This documentation site applies the same governance the registry itself
-enforces. **No overclaim.** Where content describes future work, the
-language is conditional ("planned", "in preparation"). Where content
-describes current state, the language matches what is actually committed
-to the registry.
+enforces. **No overclaim.** Where content describes future work, the language is
+conditional ("planned", "in preparation"). Where content describes current
+state, the language matches what is actually committed to the registry.
 
-The engineering-evidence layer now contains its first public scoped
-Breshev gas-bearing method-chain anchor. The home page and registry
-overview reflect that status without upgrading it to universal or L5 validation.
+The engineering-evidence layer currently contains two public engineering-
+evidence anchors in `cases/public/`. The home page and registry overview
+reflect that status without upgrading it to universal or arbitrary-geometry
+production validation.
 
 ## Version
 
-Site source v1.1, May 2026. Schema v1.1 alignment. First public Breshev gas-bearing method-chain anchor included.
+Site source v0.1.0 release alignment, June 2026. Schema v1.1 alignment. Two
+public engineering-evidence anchors included.
+

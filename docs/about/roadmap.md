@@ -1,15 +1,16 @@
 # Roadmap
 
 This page tracks public planned development for the AURA Validation Chain
-Registry and supporting infrastructure. All items are conditional on
-funding, time, and the priorities surfaced during ongoing work.
+Registry and supporting infrastructure. All items are conditional on funding,
+time, and the priorities surfaced during ongoing work.
 
 ## Completed
 
 - Public registry scaffold.
 - MkDocs documentation site.
-- First public scoped Breshev gas-bearing method-chain anchor:
-  `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`.
+- Two public engineering-evidence anchors in `cases/public/`:
+  - `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001`
+  - `VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001`
 
 ## Schema and registry
 
@@ -30,7 +31,9 @@ funding, time, and the priorities surfaced during ongoing work.
   additional engineering-evidence anchors.
 - AURA platform pilot module for proprietary anchor management under NDA.
 
-!!! note "Roadmap is not a commitment"
-    Items above represent current direction. Specific timelines depend on
-    funding and execution capacity. The registry reports progress as items
-    are completed, not before.
+## Roadmap is not a commitment
+
+Items above represent current direction. Specific timelines depend on funding
+and execution capacity. The registry reports progress as items are completed,
+not before.
+
