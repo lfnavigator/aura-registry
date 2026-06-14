@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/Schemas-MIT-blue.svg)](LICENSE-MIT)
 [![License: CC BY 4.0](https://img.shields.io/badge/Cases-CC%20BY%204.0-lightgrey.svg)](LICENSE-CC-BY-4.0)
 
+[![DOI](https://zenodo.org/badge/1242614387.svg)](https://doi.org/10.5281/zenodo.20686707)
+
 **An open registry of validated reference cases for aerostatic gas-bearing rotor systems, built on the Breshev Validation Chain (BVC) methodology.**
 
 Maintained by Breshev Engineering. Co-authored by V. Breshev (methodology) and O. Breshev (platform). Part of the AURA Engineering Platform (currently AURA v0.3.0-alpha).
@@ -173,6 +175,13 @@ When citing a specific anchor case, include its `entryId`. For example:
 > ...validated against AURA Registry anchor `VCR_BRESHEV_CONICAL_001` (Breshev & Breshev, 2026).
 
 A formal whitepaper describing the methodology and initial anchor cases will be published as an arXiv preprint in summer 2026.
+
+For the archived public registry release, cite:
+
+Breshev, O. (2026). *AURA Validation Chain Registry: Public Engineering-Evidence Anchors for Aerostatic Gas-Bearing Rotor Systems* (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.20686708
+
+The concept DOI for the latest registry release is: https://doi.org/10.5281/zenodo.20686707
+
 
 ---
 
