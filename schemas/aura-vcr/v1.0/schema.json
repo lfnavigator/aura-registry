@@ -30,7 +30,7 @@
     "entryId": {
       "type": "string",
       "pattern": "^VCR_[A-Z0-9_]{4,64}$",
-      "description": "Unique Registry entry identifier. Format: VCR_<UPPERCASE_SLUG>. Examples: VCR_BRESHEV_CONICAL_001, VCR_NELSON_MCVAUGH_1976, VCR_MONOKRISTALL_FOUNDATION."
+      "description": "Unique Registry entry identifier. Format: VCR_<UPPERCASE_SLUG>. Examples: VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001, VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001."
     },
     "caseId": {
       "type": [

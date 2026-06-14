@@ -9,7 +9,7 @@
 
 Maintained by Breshev Engineering. Co-authored by V. Breshev (methodology) and O. Breshev (platform). Part of the AURA Engineering Platform (currently AURA v0.3.0-alpha).
 
-**Status:** Initial public registry scaffold. Schemas are authoritative; public anchor cases are being curated.
+**Status:** v0.1.0 public registry release. Two public engineering-evidence anchors are available in `cases/public/`. Claims are benchmark-scope and not arbitrary-geometry production validation.
 
 ---
 
@@ -21,7 +21,7 @@ This repository contains:
 - **Public anchor cases** — validated reference cases with full traceable provenance from industrial baseline through analytical method, calibrated CFD, and (where available) experimental verification.
 - **Documentation** of the BVC methodology itself.
 
-The AURA software platform is maintained separately. It generates engineering cases conforming to these schemas and produces signed Trust Packages that reference registry entries.
+The AURA software platform is maintained separately. It generates engineering cases conforming to these schemas and produces decision packages that reference registry entries.
 
 This repository is the **public, citable, auditable** counterpart to AURA. Every published anchor case is reproducible, every residual traceable, every applicability boundary explicit.
 
@@ -99,8 +99,8 @@ Specific to dynamic analysis. Damping coefficients are often the weakest point i
 |---|---|---|
 | D0 | Constant / proxy fallback | Screening only |
 | D1 | Literature-based criterion | Review required |
-| D2 | Perturbation-method computed | Conditional Trust Package with limitations |
-| D3 | CFD-calibrated against known anchor | Strong Trust Package evidence |
+| D2 | Perturbation-method computed | Conditional decision package with limitations |
+| D3 | CFD-calibrated against known anchor | Strong decision package evidence |
 | D4 | Experimentally measured or identified | Engineering-grade evidence |
 
 The AURA Decision Freeze function consults both ladders and downgrades freeze permission accordingly. A case with proxy damping (D0) cannot produce engineering-grade freeze regardless of how strong other evidence is.
@@ -120,11 +120,11 @@ aura-registry/
 │           └── schema.json
 ├── cases/
 │   ├── public/                    # CC-BY-4.0 — anchor cases publishable globally
-│   │   ├── VCR_BRESHEV_CONICAL_001/
+│   │   ├── VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001/
 │   │   │   ├── registry_entry.json
 │   │   │   ├── references.md
 │   │   │   └── attached/
-│   │   ├── VCR_NELSON_MCVAUGH_1976/
+│   │   ├── VCR_AURA_JOURNAL_AEROSTATIC_L4_DUAL_BENCHMARK_001/
 │   │   │   └── registry_entry.json
 │   │   └── ...
 │   └── internal/                  # not publicly tracked
@@ -172,7 +172,7 @@ For version-specific citation, cite the repository release tag or archived DOI w
 
 When citing a specific anchor case, include its `entryId`. For example:
 
-> ...validated against AURA Registry anchor `VCR_BRESHEV_CONICAL_001` (Breshev & Breshev, 2026).
+> ...validated against AURA Registry anchor `VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001` (Breshev & Breshev, 2026).
 
 A formal whitepaper describing the methodology and initial anchor cases will be published as an arXiv preprint in summer 2026.
 
@@ -198,7 +198,7 @@ import jsonschema
 with open('schemas/aura-vcr/v1.0/schema.json') as f:
     vcr_schema = json.load(f)
 
-with open('cases/public/VCR_BRESHEV_CONICAL_001/registry_entry.json') as f:
+with open('cases/public/VCR_BRESHEV_CONICAL_P05_METHOD_CHAIN_001/registry_entry.json') as f:
     entry = json.load(f)
 
 jsonschema.validate(entry, vcr_schema)
@@ -248,13 +248,13 @@ We do not accept anchor cases without traceable provenance, residual data, or ex
 ## Roadmap
 
 **Q3 2026:**
-- 3–5 initial public anchor cases (VC-001, VC-002, VC-003, Monokristall foundation, experimental spindle)
+- Add additional public anchors only after evidence review, scope definition, and residual-level validation are complete.
 - Whitepaper preprint on arXiv
 - Tooling: reference validator, similarity matcher example
 
 **Q4 2026:**
 - First peer-reviewed publication submitted (Tribology International or Journal of Tribology)
-- Trust Package format specification
+- decision package format specification
 - Additional anchor cases from systematic CFD archive curation
 
 **Q1 2027:**
@@ -277,7 +277,7 @@ For technical questions, anchor case proposals, or collaboration inquiries:
 - **Website**: https://breshevengineering.com
 - **LinkedIn**: https://www.linkedin.com/in/alekseybreshev/
 
-For consulting engagements based on BVC methodology (Validation Sprints, Engineering Trust Packages, OEM Validation Programs), see https://breshevengineering.com.
+For scoped engineering review or pilot inquiries based on the AURA / BVC methodology, see https://breshevengineering.com.
 
 ---
 
