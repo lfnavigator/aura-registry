@@ -178,7 +178,7 @@ A formal whitepaper describing the methodology and initial anchor cases will be 
 
 For the archived public registry release, cite:
 
-Breshev, O. (2026). *AURA Validation Chain Registry: Public Engineering-Evidence Anchors for Aerostatic Gas-Bearing Rotor Systems* (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.20686708
+Breshev, O. (2026). *AURA Validation Chain Registry: Public Engineering-Evidence Anchors for Aerostatic Gas-Bearing Rotor Systems* (v0.1.1). Zenodo. https://doi.org/10.5281/zenodo.20687318
 
 The concept DOI for the latest registry release is: https://doi.org/10.5281/zenodo.20686707
 
