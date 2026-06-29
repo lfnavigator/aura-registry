@@ -309,3 +309,8 @@ Methodology co-author:  V. Breshev (expert reviewer)
 ---
 
 *This README is the public-facing introduction to the AURA Registry. Schema files in `schemas/` are authoritative for data structure. Methodology documents in `docs/methodology/` are authoritative for theoretical and procedural details. Where this README and the schemas conflict, the schemas govern.*
+
+
+Project website: https://breshevengineering.com
+
+AURA Engineering Platform is a hardware-grounded workflow for gas-bearing rotor decisions: application fit, support architecture, coefficient evidence, rotor-dynamic screening, validation provenance, and claim-bounded decisions.
